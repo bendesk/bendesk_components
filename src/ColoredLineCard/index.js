@@ -8,10 +8,11 @@ import colors from '../Shared/colors';
 import { ThemeWrapper } from '../theme/ThemeWrapper';
 const useStyles = makeStyles(theme => ({
   root: {
-    padding: '24px',
+    maxWidth: '400px',
+    padding: '32px',
     borderRadius: '0px',
     [theme.breakpoints.down('sm')]: {
-      padding: '16px'
+      padding: '24px'
     }
   },
   bullet: {
@@ -21,11 +22,11 @@ const useStyles = makeStyles(theme => ({
   },
   title: {
     // fontSize: 14
-    marginBottom: '58px',
-    marginLeft: '2px',
-    [theme.breakpoints.down('sm')]: {
-      marginBottom: '56px'
-    }
+    marginBottom: '24px',
+    // marginLeft: '2px',
+    // [theme.breakpoints.down('sm')]: {
+    //   marginBottom: '56px'
+    // }
   },
   pos: {
     marginBottom: 12
@@ -44,71 +45,76 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export const TypographyTeaser = ({ text, title, url, textColor, backgroundColor, buttonText, buttonVariant, buttonBackground, buttonTextColor }) => {
+export const ColoredLineCard = ({ type, description, title, url, color, buttonText, buttonVariant }) => {
   const classes = useStyles();
   return (
     <ThemeWrapper >
 
-    <Card
-      className={classes.root}
-      raised
-      style={{
-        background: colors[backgroundColor],
-        boxShadow: backgroundColor
-          ? 'none'
-          : '0px 5px 10px -10px rgba(0, 0, 0, 0.03), 0px 9px 30px 2px rgba(0, 0, 0, 0.1)'
-      }}
-    >
-        <CardContent className={classes.CardContent}>
+      <Card
+        className={classes.root}
+        raised
+        style={{
+          borderTop: `4px solid ${colors[color]}`,
+          // background: colors[backgroundColor],
+          boxShadow: '0px 5px 10px -10px rgba(0, 0, 0, 0.03), 0px 9px 30px 2px rgba(0, 0, 0, 0.1)'
+        }}
+      >
+        <CardContent className={classes.CardContent} style={{alignItems: description ? '' : 'center'}}>
           <Typography
             className={classes.title}
             variant="h3"
             style={{
-              color: colors[textColor] || 'white',
+              color: colors[color] || 'white',
+              textAlign: description ? 'left' : 'center'
             }}
           >
             {title}
           </Typography>
-          <div
+          <Typography
+            className={classes.title}
+            variant="body1"
+            color="textSecondary"
+          >
+            {description}
+          </Typography>
+          {type === 'withButton' && <div
             style={{
               marginLeft: '2px',
-              color: !backgroundColor ? colors[textColor] : 'white',
+              color: !color ? colors[textColor] : 'white',
               display: 'inline-flex'
             }}
           >
-            <Button size="medium" disableElevation variant={buttonVariant} endIcon={<ArrowForwardIcon className={classes.arrowSize} />} style={{ color: colors[buttonTextColor], backgroundColor: buttonVariant!=='text' && colors[buttonBackground], borderRadius: '20px' }}>
+            <Button size="medium" disableElevation variant={buttonVariant} color="primary">
               {buttonText}
             </Button>
-          </div>
+          </div>}
         </CardContent>
-    </Card>
+      </Card>
     </ThemeWrapper>
   )
 }
 
-TypographyTeaser.propTypes = {
-  title: PropTypes.string,
+ColoredLineCard.propTypes = {
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string,
   url: PropTypes.string,
   flex: PropTypes.number,
-  textColor: PropTypes.oneOf(['white', 'primary', 'success', 'warning', 'error', 'purple']),
-  backgroundColor: PropTypes.oneOf(['white', 'primary', 'success', 'warning', 'error', 'purple']),
-  buttonTextColor: PropTypes.oneOf(['white', 'primary', 'success', 'warning', 'error', 'purple']),
-  buttonBackground: PropTypes.oneOf(['white', 'primary', 'success', 'warning', 'error', 'purple']),
+  type: PropTypes.oneOf(['standard', 'withButton']),
+  color: PropTypes.oneOf(['white', 'primary', 'success', 'warning', 'error', 'purple']),
   buttonText: PropTypes.string.isRequired,
   buttonLink: PropTypes.string.isRequired,
   buttonVariant: PropTypes.oneOf(['contained', 'text']),
   onClick: PropTypes.func,
 };
 
-TypographyTeaser.defaultProps = {
+ColoredLineCard.defaultProps = {
   title: 'This is a typography teaser',
+  description: 'This is a typography teaser. This is a typography teaser.',
   url: '',
   flex: 2,
-  textColor: '',
-  backgroundColor: 'purple',
-  buttonText: 'Continue',
-  buttonTextColor: 'primary',
-  buttonBackground: 'white',
+  type: 'standard',
+  color: 'primary',
+  buttonText: 'Button',
   buttonLink: PropTypes.string.isRequired,
   buttonVariant: 'contained',
   onClick: f => f

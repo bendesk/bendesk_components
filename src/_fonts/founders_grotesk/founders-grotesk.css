@@ -1,0 +1,17 @@
+@font-face {
+    font-family: 'Founders Grotesk';
+    font-style:  normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("founders-grotesk-web-regular.woff2") format("woff2"),
+         url("founders-grotesk-web-regular.woff") format("woff");
+  }
+  @font-face {
+    font-family: 'Founders Grotesk';
+    font-style:  normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url("founders-grotesk-web-semibold.woff2") format("woff2"),
+         url("founders-grotesk-web-semibold.woff") format("woff");
+  }
+  

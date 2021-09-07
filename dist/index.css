@@ -1,16 +1,18 @@
 /* add css module styles here (optional) */
 
-._3ybTi {
+._styles-module__test__3ybTi {
   margin: 2em;
   padding: 0.5em;
   border: 2px solid #000;
   font-size: 2em;
   text-align: center;
 }
-
+._styles-module__MuiPaper-rounded__3ApX9{
+  border-radius: 0px !important;
+}
 /* add css module styles here (optional) */
 
-._2KYEg {
+._styles-module__test__2KYEg {
   margin: 2em;
   padding: 0.5em;
   border: 2px solid #000;
