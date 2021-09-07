@@ -44,21 +44,22 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export const TypographyTeaser = ({ text, title, url, textColor, backgroundColor, buttonText, buttonVariant, buttonBackground, buttonTextColor }) => {
+export const TypographyTeaser = ({ text, title, url, textColor, backgroundColor, buttonText, buttonVariant, buttonBackground, buttonTextColor, style }) => {
   const classes = useStyles();
   return (
     <ThemeWrapper >
 
-    <Card
-      className={classes.root}
-      raised
-      style={{
-        background: colors[backgroundColor],
-        boxShadow: backgroundColor
-          ? 'none'
-          : '0px 5px 10px -10px rgba(0, 0, 0, 0.03), 0px 9px 30px 2px rgba(0, 0, 0, 0.1)'
-      }}
-    >
+      <Card
+        className={classes.root}
+        raised
+        style={{
+          background: colors[backgroundColor],
+          boxShadow: backgroundColor
+            ? 'none'
+            : '0px 5px 10px -10px rgba(0, 0, 0, 0.03), 0px 9px 30px 2px rgba(0, 0, 0, 0.1)',
+          ...style
+        }}
+      >
         <CardContent className={classes.CardContent}>
           <Typography
             className={classes.title}
@@ -76,12 +77,12 @@ export const TypographyTeaser = ({ text, title, url, textColor, backgroundColor,
               display: 'inline-flex'
             }}
           >
-            <Button size="medium" disableElevation variant={buttonVariant} endIcon={<ArrowForwardIcon className={classes.arrowSize} />} style={{ color: colors[buttonTextColor], backgroundColor: buttonVariant!=='text' && colors[buttonBackground], borderRadius: '20px' }}>
+            <Button size="medium" disableElevation variant={buttonVariant} endIcon={<ArrowForwardIcon className={classes.arrowSize} />} style={{ color: colors[buttonTextColor], backgroundColor: buttonVariant !== 'text' && colors[buttonBackground], borderRadius: '20px' }}>
               {buttonText}
             </Button>
           </div>
         </CardContent>
-    </Card>
+      </Card>
     </ThemeWrapper>
   )
 }

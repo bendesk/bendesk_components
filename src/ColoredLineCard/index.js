@@ -45,21 +45,20 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export const ColoredLineCard = ({ type, description, title, url, color, buttonText, buttonVariant }) => {
+export const ColoredLineCard = ({ type, description, title, url, color, buttonText, buttonVariant, style }) => {
   const classes = useStyles();
   return (
     <ThemeWrapper >
-
       <Card
         className={classes.root}
         raised
         style={{
           borderTop: `4px solid ${colors[color]}`,
-          // background: colors[backgroundColor],
-          boxShadow: '0px 5px 10px -10px rgba(0, 0, 0, 0.03), 0px 9px 30px 2px rgba(0, 0, 0, 0.1)'
+          boxShadow: '0px 5px 10px -10px rgba(0, 0, 0, 0.03), 0px 9px 30px 2px rgba(0, 0, 0, 0.1)',
+          ...style
         }}
       >
-        <CardContent className={classes.CardContent} style={{alignItems: description ? '' : 'center'}}>
+        <CardContent className={classes.CardContent} style={{ alignItems: description ? '' : 'center' }}>
           <Typography
             className={classes.title}
             variant="h3"
