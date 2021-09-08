@@ -8,31 +8,32 @@ import colors from '../Shared/colors';
 import { ThemeWrapper } from '../theme/ThemeWrapper';
 const useStyles = makeStyles(theme => ({
   root: {
-    maxWidth: '400px',
+    width: '400px',
     padding: '32px',
     borderRadius: '0px',
+    height: 'auto',
     [theme.breakpoints.down('xs')]: {
       padding: '16px',
       paddingTop: '32px',
       paddingBottom: '32px',
-      maxWidth: '264px',
+      width: '264px'
     },
     [theme.breakpoints.down('sm')]: {
       padding: '16px',
       paddingTop: '32px',
       paddingBottom: '32px',
-      maxWidth: '318px',
+      width: '318px'
     },
     [theme.breakpoints.down('md')]: {
       padding: '16px',
       paddingTop: '32px',
       paddingBottom: '32px',
-      maxWidth: '282px',
+      width: '282px'
     },
     [theme.breakpoints.down('lg')]: {
       padding: '16px',
       paddingTop: '32px',
-      paddingBottom: '32px',
+      paddingBottom: '32px'
     }
   },
   bullet: {
@@ -41,12 +42,7 @@ const useStyles = makeStyles(theme => ({
     transform: 'scale(0.8)'
   },
   title: {
-    // fontSize: 14
-    marginBottom: '24px',
-    // marginLeft: '2px',
-    // [theme.breakpoints.down('sm')]: {
-    //   marginBottom: '56px'
-    // }
+    marginBottom: '24px'
   },
   pos: {
     marginBottom: 12
@@ -55,15 +51,15 @@ const useStyles = makeStyles(theme => ({
     padding: '0px!important',
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'space-between',
+    justifyContent: 'space-between'
     // height: '130px'
   },
   arrowSize: {
     [theme.breakpoints.down('sm')]: {
       fontSize: '22px'
-    },
+    }
   }
-}));
+}))
 
 export const ColoredLineCard = ({ type, description, title, url, color, buttonText, buttonVariant, style }) => {
   const classes = useStyles();
