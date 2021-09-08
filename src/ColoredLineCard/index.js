@@ -11,8 +11,28 @@ const useStyles = makeStyles(theme => ({
     maxWidth: '400px',
     padding: '32px',
     borderRadius: '0px',
+    [theme.breakpoints.down('xs')]: {
+      padding: '16px',
+      paddingTop: '32px',
+      paddingBottom: '32px',
+      maxWidth: '264px',
+    },
     [theme.breakpoints.down('sm')]: {
-      padding: '24px'
+      padding: '16px',
+      paddingTop: '32px',
+      paddingBottom: '32px',
+      maxWidth: '318px',
+    },
+    [theme.breakpoints.down('md')]: {
+      padding: '16px',
+      paddingTop: '32px',
+      paddingBottom: '32px',
+      maxWidth: '282px',
+    },
+    [theme.breakpoints.down('lg')]: {
+      padding: '16px',
+      paddingTop: '32px',
+      paddingBottom: '32px',
     }
   },
   bullet: {
@@ -108,7 +128,7 @@ ColoredLineCard.propTypes = {
 
 ColoredLineCard.defaultProps = {
   title: 'This is a typography teaser',
-  description: 'This is a typography teaser. This is a typography teaser.',
+  description: '',
   url: '',
   flex: 2,
   type: 'standard',
