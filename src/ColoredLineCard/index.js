@@ -8,7 +8,7 @@ import colors from '../Shared/colors';
 import { ThemeWrapper } from '../theme/ThemeWrapper';
 const useStyles = makeStyles(theme => ({
   root: {
-    width: '400px',
+    minWidth: '400px',
     padding: '32px',
     borderRadius: '0px',
     height: 'auto',
@@ -16,19 +16,19 @@ const useStyles = makeStyles(theme => ({
       padding: '16px',
       paddingTop: '32px',
       paddingBottom: '32px',
-      width: '264px'
+      minWidth: '264px'
     },
     [theme.breakpoints.down('sm')]: {
       padding: '16px',
       paddingTop: '32px',
       paddingBottom: '32px',
-      width: '318px'
+      minWidth: '318px'
     },
     [theme.breakpoints.down('md')]: {
       padding: '16px',
       paddingTop: '32px',
       paddingBottom: '32px',
-      width: '282px'
+      minWidth: '282px'
     },
     [theme.breakpoints.down('lg')]: {
       padding: '16px',
