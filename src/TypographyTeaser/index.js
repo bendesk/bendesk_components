@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import colors from '../Shared/colors';
 import { ThemeWrapper } from '../theme/ThemeWrapper';
+import { colorSet } from '../theme/palette';
 const useStyles = makeStyles(theme => ({
   root: {
     padding: '24px',
@@ -46,6 +47,7 @@ const useStyles = makeStyles(theme => ({
 
 export const TypographyTeaser = ({ text, title, url, textColor, backgroundColor, buttonText, buttonVariant, buttonBackground, buttonTextColor, style }) => {
   const classes = useStyles();
+  console.log(backgroundColor);
   return (
     <ThemeWrapper >
 
@@ -53,7 +55,7 @@ export const TypographyTeaser = ({ text, title, url, textColor, backgroundColor,
         className={classes.root}
         raised
         style={{
-          background: colors[backgroundColor],
+          background: backgroundColor ? colorSet[backgroundColor] : 'white',
           boxShadow: backgroundColor
             ? 'none'
             : '0px 5px 10px -10px rgba(0, 0, 0, 0.03), 0px 9px 30px 2px rgba(0, 0, 0, 0.1)',
@@ -65,7 +67,7 @@ export const TypographyTeaser = ({ text, title, url, textColor, backgroundColor,
             className={classes.title}
             variant="h3"
             style={{
-              color: colors[textColor] || 'white',
+              color: backgroundColor ? 'white' : colorSet[textColor]
             }}
           >
             {title}
@@ -73,11 +75,11 @@ export const TypographyTeaser = ({ text, title, url, textColor, backgroundColor,
           <div
             style={{
               marginLeft: '2px',
-              color: !backgroundColor ? colors[textColor] : 'white',
+              color: 'white',
               display: 'inline-flex'
             }}
           >
-            <Button size="medium" disableElevation variant={buttonVariant} endIcon={<ArrowForwardIcon className={classes.arrowSize} />} style={{ color: colors[buttonTextColor], backgroundColor: buttonVariant !== 'text' && colors[buttonBackground], borderRadius: '20px' }}>
+            <Button size="medium" disableElevation variant={buttonVariant} endIcon={<ArrowForwardIcon className={classes.arrowSize} />} style={{ color: colors[textColor], padding: !backgroundColor && '0px', backgroundColor: buttonVariant !== 'text' && colors[buttonBackground], borderRadius: '20px' }}>
               {buttonText}
             </Button>
           </div>
@@ -91,10 +93,10 @@ TypographyTeaser.propTypes = {
   title: PropTypes.string,
   url: PropTypes.string,
   flex: PropTypes.number,
-  textColor: PropTypes.oneOf(['white', 'primary', 'success', 'warning', 'error', 'purple']),
-  backgroundColor: PropTypes.oneOf(['white', 'primary', 'success', 'warning', 'error', 'purple']),
-  buttonTextColor: PropTypes.oneOf(['white', 'primary', 'success', 'warning', 'error', 'purple']),
-  buttonBackground: PropTypes.oneOf(['white', 'primary', 'success', 'warning', 'error', 'purple']),
+  textColor: PropTypes.oneOf(['primary', 'success', 'warning', 'error', 'purple']),
+  backgroundColor: PropTypes.oneOf(['blue', 'success', 'warning', 'error', 'purple']),
+  buttonTextColor: PropTypes.oneOf(['blue', 'success', 'warning', 'error', 'purple']),
+  buttonBackground: PropTypes.oneOf(['blue', 'success', 'warning', 'error', 'purple']),
   buttonText: PropTypes.string.isRequired,
   buttonLink: PropTypes.string.isRequired,
   buttonVariant: PropTypes.oneOf(['contained', 'text']),
@@ -106,9 +108,9 @@ TypographyTeaser.defaultProps = {
   url: '',
   flex: 2,
   textColor: '',
-  backgroundColor: 'purple',
+  backgroundColor: '',
   buttonText: 'Continue',
-  buttonTextColor: 'primary',
+  buttonTextColor: 'blue',
   buttonBackground: 'white',
   buttonLink: PropTypes.string.isRequired,
   buttonVariant: 'contained',

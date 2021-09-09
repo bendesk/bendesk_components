@@ -9,29 +9,29 @@ import { ThemeWrapper } from '../theme/ThemeWrapper';
 const useStyles = makeStyles(theme => ({
   root: {
     minWidth: '400px',
-    padding: '32px',
+    maxWidth: '400px',
+    padding: '24px',
     borderRadius: '0px',
     height: 'auto',
-    [theme.breakpoints.down('xs')]: {
-      padding: '16px',
+    [theme.breakpoints.only('xs')]: {
       paddingTop: '32px',
       paddingBottom: '32px',
+      maxWidth: '264px',
       minWidth: '264px'
     },
-    [theme.breakpoints.down('sm')]: {
-      padding: '16px',
+    [theme.breakpoints.only('sm')]: {
       paddingTop: '32px',
       paddingBottom: '32px',
+      maxWidth: '318px',
       minWidth: '318px'
     },
-    [theme.breakpoints.down('md')]: {
-      padding: '16px',
+    [theme.breakpoints.only('md')]: {
       paddingTop: '32px',
       paddingBottom: '32px',
+      maxWidth: '282px',
       minWidth: '282px'
     },
-    [theme.breakpoints.down('lg')]: {
-      padding: '16px',
+    [theme.breakpoints.up('lg')]: {
       paddingTop: '32px',
       paddingBottom: '32px'
     }
@@ -115,11 +115,11 @@ ColoredLineCard.propTypes = {
   url: PropTypes.string,
   flex: PropTypes.number,
   type: PropTypes.oneOf(['standard', 'withButton']),
-  color: PropTypes.oneOf(['white', 'primary', 'success', 'warning', 'error', 'purple']),
+  color: PropTypes.oneOf(['white', 'success', 'warning', 'error', 'purple']),
   buttonText: PropTypes.string.isRequired,
   buttonLink: PropTypes.string.isRequired,
   buttonVariant: PropTypes.oneOf(['contained', 'text']),
-  onClick: PropTypes.func,
+  onClick: PropTypes.func
 };
 
 ColoredLineCard.defaultProps = {
@@ -128,7 +128,7 @@ ColoredLineCard.defaultProps = {
   url: '',
   flex: 2,
   type: 'standard',
-  color: 'primary',
+  color: 'warning',
   buttonText: 'Button',
   buttonLink: PropTypes.string.isRequired,
   buttonVariant: 'contained',

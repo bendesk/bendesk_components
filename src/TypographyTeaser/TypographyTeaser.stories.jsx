@@ -9,15 +9,24 @@ export default {
 
 const Template = (args) => <TypographyTeaser {...args} />
 
-export const Standard = Template.bind({})
-Standard.args = {}
-
-export const withInput = Template.bind({})
-withInput.args = {
-  wInput: true
+export const BlueBackground = Template.bind({})
+BlueBackground.args = {
+  backgroundColor: 'blue',
+  textColor: ''
 }
 
-export const withSharing = Template.bind({})
-withSharing.args = {
-  wSharing: true
+export const WhiteShadow = Template.bind({})
+WhiteShadow.args = {
+  backgroundColor: '',
+  textColor: 'purple'
 }
+
+// export const withInput = Template.bind({})
+// withInput.args = {
+//   wInput: true
+// }
+
+// export const withSharing = Template.bind({})
+// withSharing.args = {
+//   wSharing: true
+// }
