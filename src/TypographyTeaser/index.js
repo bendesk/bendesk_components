@@ -1,18 +1,18 @@
 import { Button, Card, CardContent, Link, Typography } from '@material-ui/core'
 import React from 'react'
+import clsx from 'clsx'
 import styles from './styles.module.css'
 import { makeStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import colors from '../Shared/colors';
 import { ThemeWrapper } from '../theme/ThemeWrapper';
-import { colorSet } from '../theme/palette';
 const useStyles = makeStyles(theme => ({
   root: {
-    padding: '24px',
     borderRadius: '0px',
-    [theme.breakpoints.down('sm')]: {
-      padding: '16px'
+    padding: '16px',
+    [theme.breakpoints.up('md')]: {
+      padding: '24px'
     }
   },
   bullet: {
@@ -22,11 +22,22 @@ const useStyles = makeStyles(theme => ({
   },
   title: {
     // fontSize: 14
-    marginBottom: '58px',
     marginLeft: '2px',
-    [theme.breakpoints.down('sm')]: {
-      marginBottom: '56px'
-    }
+  },
+  button: {
+    marginLeft: '2px',
+    display: 'inline-flex',
+    marginTop: '24px',
+    color: 'white',
+    [theme.breakpoints.up('md')]: {
+      marginTop: '40px'
+    },
+    '&:hover': {
+      '&:$arrowSize': {
+
+        marginLeft: '12px'
+      }
+    },
   },
   pos: {
     marginBottom: 12
@@ -39,23 +50,24 @@ const useStyles = makeStyles(theme => ({
     // height: '130px'
   },
   arrowSize: {
+
     [theme.breakpoints.down('sm')]: {
       fontSize: '22px'
     },
   }
 }));
 
-export const TypographyTeaser = ({ text, title, url, textColor, backgroundColor, buttonText, buttonVariant, buttonBackground, buttonTextColor, style }) => {
+export const TypographyTeaser = ({ text, title, url, textColor, backgroundColor, buttonText, buttonVariant, buttonBackground, buttonTextColor, style, className }) => {
   const classes = useStyles();
   console.log(backgroundColor);
   return (
     <ThemeWrapper >
 
       <Card
-        className={classes.root}
+        className={clsx(classes.root, className)}
         raised
         style={{
-          background: backgroundColor ? colorSet[backgroundColor] : 'white',
+          background: backgroundColor ? colors[backgroundColor] : 'white',
           boxShadow: backgroundColor
             ? 'none'
             : '0px 5px 10px -10px rgba(0, 0, 0, 0.03), 0px 9px 30px 2px rgba(0, 0, 0, 0.1)',
@@ -67,19 +79,19 @@ export const TypographyTeaser = ({ text, title, url, textColor, backgroundColor,
             className={classes.title}
             variant="h3"
             style={{
-              color: backgroundColor ? 'white' : colorSet[textColor]
+              color: backgroundColor ? 'white' : colors[textColor]
             }}
           >
             {title}
           </Typography>
           <div
-            style={{
-              marginLeft: '2px',
-              color: 'white',
-              display: 'inline-flex'
-            }}
+            className={classes.button}
           >
-            <Button size="medium" disableElevation variant={buttonVariant} endIcon={<ArrowForwardIcon className={classes.arrowSize} />} style={{ color: colors[textColor], padding: !backgroundColor && '0px', backgroundColor: buttonVariant !== 'text' && colors[buttonBackground], borderRadius: '20px' }}>
+            <Button size="medium" disableElevation variant={buttonVariant} endIcon={<ArrowForwardIcon className={classes.arrowSize} />}
+              style={{
+                color: backgroundColor ? colors['primary'] : colors[textColor], padding: !backgroundColor && '0px',
+                backgroundColor: !backgroundColor ? '' : '#ffffff', borderRadius: '20px'
+              }}>
               {buttonText}
             </Button>
           </div>
@@ -94,9 +106,9 @@ TypographyTeaser.propTypes = {
   url: PropTypes.string,
   flex: PropTypes.number,
   textColor: PropTypes.oneOf(['primary', 'success', 'warning', 'error', 'purple']),
-  backgroundColor: PropTypes.oneOf(['blue', 'success', 'warning', 'error', 'purple']),
-  buttonTextColor: PropTypes.oneOf(['blue', 'success', 'warning', 'error', 'purple']),
-  buttonBackground: PropTypes.oneOf(['blue', 'success', 'warning', 'error', 'purple']),
+  // backgroundColor: PropTypes.oneOf(['blue', 'success', 'warning', 'error', 'purple']),
+  // buttonTextColor: PropTypes.oneOf(['blue', 'success', 'warning', 'error', 'purple']),
+  // buttonBackground: PropTypes.oneOf(['blue', 'success', 'warning', 'error', 'purple']),
   buttonText: PropTypes.string.isRequired,
   buttonLink: PropTypes.string.isRequired,
   buttonVariant: PropTypes.oneOf(['contained', 'text']),
@@ -108,10 +120,9 @@ TypographyTeaser.defaultProps = {
   url: '',
   flex: 2,
   textColor: '',
-  backgroundColor: '',
   buttonText: 'Continue',
-  buttonTextColor: 'blue',
-  buttonBackground: 'white',
+  // buttonTextColor: 'blue',
+  // buttonBackground: 'white',
   buttonLink: PropTypes.string.isRequired,
   buttonVariant: 'contained',
   onClick: f => f

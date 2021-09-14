@@ -18,7 +18,8 @@ BlueBackground.args = {
 export const WhiteShadow = Template.bind({})
 WhiteShadow.args = {
   backgroundColor: '',
-  textColor: 'purple'
+  textColor: 'purple',
+  buttonVariant: 'text'
 }
 
 // export const withInput = Template.bind({})

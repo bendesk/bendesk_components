@@ -13,7 +13,10 @@ export default {
     fontSize: '15px',
     fontWeight: 400,
     letterSpacing: '0px',
-    lineHeight: '24px'
+    lineHeight: '24px',
+    '&:hover':{
+      backgroundColor: 'transparent'
+    }
   },
   textSizeSmall : {
     fontFamily: 'Inter',

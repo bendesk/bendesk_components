@@ -1,5 +1,6 @@
 import { Button, Card, CardContent, Link, Typography } from '@material-ui/core'
 import React from 'react'
+import clsx from 'clsx'
 import styles from './styles.module.css'
 import { makeStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
@@ -8,33 +9,28 @@ import colors from '../Shared/colors';
 import { ThemeWrapper } from '../theme/ThemeWrapper';
 const useStyles = makeStyles(theme => ({
   root: {
-    minWidth: '400px',
-    maxWidth: '400px',
-    padding: '24px',
+    minWidth: '390px',
+    maxWidth: '390px',
     borderRadius: '0px',
     height: 'auto',
+    padding: '16px',
+    paddingTop: '0px',
     [theme.breakpoints.only('xs')]: {
-      paddingTop: '32px',
-      paddingBottom: '32px',
       maxWidth: '264px',
       minWidth: '264px'
     },
     [theme.breakpoints.only('sm')]: {
-      paddingTop: '32px',
-      paddingBottom: '32px',
       maxWidth: '318px',
       minWidth: '318px'
     },
     [theme.breakpoints.only('md')]: {
-      paddingTop: '32px',
-      paddingBottom: '32px',
       maxWidth: '282px',
       minWidth: '282px'
     },
-    [theme.breakpoints.up('lg')]: {
-      paddingTop: '32px',
-      paddingBottom: '32px'
-    }
+    [theme.breakpoints.only('lg')]: {
+      maxWidth: '280px',
+      minWidth: '280px'
+    },
   },
   bullet: {
     display: 'inline-block',
@@ -42,6 +38,12 @@ const useStyles = makeStyles(theme => ({
     transform: 'scale(0.8)'
   },
   title: {
+    marginBottom: '24px'
+  },
+  button: {
+    marginLeft: '2px',
+    display: 'inline-flex',
+    marginTop: '32px',
     marginBottom: '24px'
   },
   pos: {
@@ -61,12 +63,12 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export const ColoredLineCard = ({ type, description, title, url, color, buttonText, buttonVariant, style }) => {
+export const ColoredLineCard = ({ type, description, title, url, color, buttonText, buttonVariant, style, className }) => {
   const classes = useStyles();
   return (
     <ThemeWrapper >
       <Card
-        className={classes.root}
+        className={clsx(classes.root, className) }
         raised
         style={{
           borderTop: `4px solid ${colors[color]}`,
@@ -76,33 +78,27 @@ export const ColoredLineCard = ({ type, description, title, url, color, buttonTe
       >
         <CardContent className={classes.CardContent} style={{ alignItems: description ? '' : 'center' }}>
           <Typography
-            className={classes.title}
             variant="h3"
             style={{
               color: colors[color] || 'white',
-              textAlign: description ? 'left' : 'center'
+              textAlign: description ? 'left' : 'center',
+              marginTop: '32px'
             }}
           >
             {title}
           </Typography>
-          <Typography
-            className={classes.title}
-            variant="body1"
+          {description && <Typography
             color="textSecondary"
+            style={{ marginTop: '8px', color: colors[color] || 'white', }}
           >
             {description}
-          </Typography>
-          {type === 'withButton' && <div
-            style={{
-              marginLeft: '2px',
-              color: !color ? colors[textColor] : 'white',
-              display: 'inline-flex'
-            }}
-          >
-            <Button size="medium" disableElevation variant={buttonVariant} color="primary">
-              {buttonText}
-            </Button>
-          </div>}
+          </Typography>}
+          {type === 'withButton' &&
+            <div className={classes.button} style={{ color: !color ? colors[textColor] : 'white' }}>
+              <Button size="medium" disableElevation variant={buttonVariant} color="primary">
+                {buttonText}
+              </Button>
+            </div>}
         </CardContent>
       </Card>
     </ThemeWrapper>
