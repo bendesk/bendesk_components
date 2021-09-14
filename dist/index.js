@@ -2,10 +2,67 @@ function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'defau
 
 var React = _interopDefault(require('react'));
 var core = require('@material-ui/core');
-var styles$1 = require('@material-ui/core/styles');
+var styles = require('@material-ui/core/styles');
 var ArrowForwardIcon = _interopDefault(require('@material-ui/icons/ArrowForward'));
 
-var styles = {"test":"_styles-module__test__3ybTi","MuiPaper-rounded":"_styles-module__MuiPaper-rounded__3ApX9"};
+function _extends() {
+  _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  return _extends.apply(this, arguments);
+}
+
+function toVal(mix) {
+	var k, y, str='';
+
+	if (typeof mix === 'string' || typeof mix === 'number') {
+		str += mix;
+	} else if (typeof mix === 'object') {
+		if (Array.isArray(mix)) {
+			for (k=0; k < mix.length; k++) {
+				if (mix[k]) {
+					if (y = toVal(mix[k])) {
+						str && (str += ' ');
+						str += y;
+					}
+				}
+			}
+		} else {
+			for (k in mix) {
+				if (mix[k]) {
+					str && (str += ' ');
+					str += k;
+				}
+			}
+		}
+	}
+
+	return str;
+}
+
+function clsx () {
+	var i=0, tmp, x, str='';
+	while (i < arguments.length) {
+		if (tmp = arguments[i++]) {
+			if (x = toVal(tmp)) {
+				str && (str += ' ');
+				str += x;
+			}
+		}
+	}
+	return str;
+}
 
 function createCommonjsModule(fn, module) {
 	return module = { exports: {} }, fn(module, module.exports), module.exports;
@@ -1093,27 +1150,408 @@ var colors = {
   success: '#6CC83D'
 };
 
-var useStyles = styles$1.makeStyles(function (theme) {
-  var _root, _title, _arrowSize;
+var white = '#FFFFFF';
+var black = '#28374C';
+var colorSet = {
+  blue: '#126AEF',
+  blueDark: '#0E53BA',
+  black: '#28374D',
+  red: '#FF6848',
+  purple: '#8A85FF',
+  green: '#6CC83D',
+  yellow: '#FFAE11',
+  borderGrey: '#0000003b',
+  secondary: '#6D7785',
+  grey: '#DADADA',
+  grey100: '#F0F0F0',
+  grey600: '#7E8794',
+  grey400: '#A9AFB7',
+  grey300: '#BFC3C9',
+  grey50: '#F4F5F6',
+  grey900: '#3E4B5E'
+};
+var palette = {
+  black: black,
+  white: white,
+  primary: {
+    contrastText: white,
+    dark: colorSet.blueDark,
+    main: '#126AEF',
+    light: core.colors.cyan[100]
+  },
+  secondary: {
+    contrastText: white,
+    dark: colorSet.blueDark,
+    main: '#126AEF',
+    light: core.colors.red[100]
+  },
+  success: {
+    contrastText: white,
+    dark: core.colors.green[900],
+    main: core.colors.green[600],
+    light: core.colors.green[400]
+  },
+  info: {
+    contrastText: white,
+    dark: core.colors.blue[900],
+    main: core.colors.blue[600],
+    light: core.colors.blue[400]
+  },
+  warning: {
+    contrastText: white,
+    dark: core.colors.orange[900],
+    main: core.colors.orange[600],
+    light: core.colors.orange[400]
+  },
+  error: {
+    contrastText: white,
+    dark: core.colors.red[900],
+    main: core.colors.red[600],
+    light: core.colors.red[400]
+  },
+  text: {
+    primary: '#28374C',
+    secondary: '#6D7785',
+    link: core.colors.blue[600]
+  },
+  background: {
+    "default": '#ffffff',
+    paper: white
+  },
+  icon: core.colors.blueGrey[600],
+  divider: core.colors.grey[200],
+  orange: core.colors.orange[900],
+  green: core.colors.green[900]
+};
+
+var MuiButton = {
+  contained: {},
+  root: {
+    textTransform: 'initial',
+    fontFamily: 'Inter',
+    borderRadius: '22px',
+    fontSize: '15px',
+    fontWeight: 400,
+    letterSpacing: '0px',
+    lineHeight: '24px',
+    '&:hover': {
+      backgroundColor: 'transparent'
+    }
+  },
+  textSizeSmall: {
+    fontFamily: 'Inter',
+    fontSize: '14px',
+    fontWeight: 400,
+    letterSpacing: '0.15px',
+    lineHeight: '20px'
+  },
+  sizeSmall: {
+    fontFamily: 'Inter',
+    fontSize: '13px',
+    fontWeight: 400,
+    letterSpacing: '0px',
+    lineHeight: '22px'
+  },
+  sizeMedium: {
+    fontFamily: 'Inter',
+    fontSize: '16px',
+    fontWeight: 400,
+    letterSpacing: '0px',
+    lineHeight: '24px'
+  },
+  sizeLarge: {
+    fontFamily: 'Founders Grotesk',
+    fontSize: '20px',
+    fontWeight: 400,
+    letterSpacing: '0.4px',
+    lineHeight: '23.5px'
+  },
+  textPrimary: {
+    '&:hover': {
+      backgroundColor: 'white',
+      color: colorSet['blueDark']
+    }
+  }
+};
+
+var MuiDivider = {
+  root: {
+    backgroundColor: '#0000003b'
+  }
+};
+
+var MuiDrawer = {
+  paperAnchorDockedLeft: {
+    borderRight: '1px solid #0000003b'
+  }
+};
+
+var MuiGrid = {
+  container: {
+    marginBottom: '15px'
+  },
+  'spacing-xs-3': {
+    marginBottom: '15px'
+  }
+};
+
+var MuiIconButton = {
+  root: {
+    color: palette.icon,
+    '&:hover': {
+      backgroundColor: 'rgba(0, 0, 0, 0.03)'
+    }
+  }
+};
+
+var MuiPaper = {
+  elevation1: {
+    boxShadow: 'none',
+    backgroundColor: '#FFFFFF',
+    color: '#28374C'
+  }
+};
+
+var MuiTooltip = {
+  tooltip: {
+    fontFamily: 'Inter',
+    fontSize: '10px',
+    fontWeight: 500,
+    letterSpacing: '0px',
+    lineHeight: '14px'
+  }
+};
+
+var MuiTypography = {
+  gutterBottom: {
+    marginBottom: 20
+  }
+};
+
+var MuiDialog = {
+  paperWidthSm: {
+    maxWidth: '75%'
+  }
+};
+
+var MuiTableRow = {
+  root: {
+    '&$hover': {
+      '&:hover': {
+        backgroundColor: colorSet['grey50']
+      }
+    }
+  }
+};
+
+var overrides = {
+  MuiButton: MuiButton,
+  MuiIconButton: MuiIconButton,
+  MuiPaper: MuiPaper,
+  MuiTooltip: MuiTooltip,
+  MuiGrid: MuiGrid,
+  MuiDivider: MuiDivider,
+  MuiDrawer: MuiDrawer,
+  MuiDialog: MuiDialog,
+  MuiTableRow: MuiTableRow,
+  MuiTypography: MuiTypography
+};
+
+var breakpoints = {
+  values: {
+    xs: 0,
+    sm: 600,
+    md: 960,
+    lg: 1280,
+    xl: 1920,
+    xxl: 1921
+  }
+};
+
+var _h, _h2, _h3, _h4;
+var theme = core.createMuiTheme();
+var typography = {
+  fontFamily: ['Inter'].join(','),
+  h1: (_h = {
+    color: palette.text.primary,
+    fontFamily: 'Founders Grotesk',
+    fontWeight: 600,
+    fontSize: '64px',
+    letterSpacing: '0px',
+    lineHeight: '70.4px'
+  }, _h[theme.breakpoints.down('sm')] = {
+    fontSize: '44px',
+    fontWeight: 600,
+    letterSpacing: '0px',
+    lineHeight: '52px'
+  }, _h),
+  h2: (_h2 = {
+    color: palette.text.primary,
+    fontFamily: 'Founders Grotesk',
+    fontWeight: 600,
+    fontSize: '42px',
+    letterSpacing: '0px',
+    lineHeight: '49px'
+  }, _h2[theme.breakpoints.down('sm')] = {
+    fontSize: '32px',
+    fontWeight: 600,
+    letterSpacing: '0px',
+    lineHeight: '38px'
+  }, _h2),
+  h3: (_h3 = {
+    color: palette.text.primary,
+    fontFamily: 'Founders Grotesk',
+    fontWeight: 600,
+    fontSize: '32px',
+    letterSpacing: '0px',
+    lineHeight: '38px'
+  }, _h3[theme.breakpoints.down('sm')] = {
+    fontSize: '24px',
+    fontWeight: 600,
+    letterSpacing: '0px',
+    lineHeight: '28px'
+  }, _h3),
+  h4: (_h4 = {
+    color: palette.text.primary,
+    fontFamily: 'Founders Grotesk',
+    fontWeight: 400,
+    fontSize: '32px',
+    letterSpacing: '0px',
+    lineHeight: '38px'
+  }, _h4[theme.breakpoints.down('sm')] = {
+    fontSize: '24px',
+    fontWeight: 400,
+    letterSpacing: '0px',
+    lineHeight: '28px'
+  }, _h4),
+  h5: {
+    fontFamily: 'Inter',
+    fontWeight: 500,
+    fontSize: '18px',
+    letterSpacing: '0px',
+    lineHeight: '22px'
+  },
+  body0: {
+    fontFamily: 'Founders Grotesk',
+    fontWeight: 400,
+    fontSize: '20px',
+    letterSpacing: '0.15px',
+    lineHeight: '25px'
+  },
+  subtitle1: {
+    fontFamily: 'Inter',
+    color: palette.text.primary,
+    fontWeight: 600,
+    fontSize: '16px',
+    letterSpacing: '0.15px',
+    lineHeight: '24px'
+  },
+  subtitle2: {
+    fontFamily: 'Inter',
+    color: palette.text.secondary,
+    fontWeight: 600,
+    fontSize: '13px',
+    letterSpacing: '0.15px',
+    lineHeight: '20px'
+  },
+  body1: {
+    fontWeight: 400,
+    fontFamily: 'Inter',
+    fontSize: '16px',
+    letterSpacing: '0.15px',
+    lineHeight: '24px'
+  },
+  'body1-mono': {
+    fontFamily: 'Inter, monospace',
+    fontSize: '16px',
+    letterSpacing: '0.15px',
+    lineHeight: '24px'
+  },
+  h6: {
+    fontFamily: 'Inter, monospace',
+    fontWeight: 400,
+    fontSize: '14px',
+    letterSpacing: '0.3px',
+    lineHeight: '20px'
+  },
+  body2: {
+    fontFamily: 'Inter',
+    fontSize: '14px',
+    fontWeight: 400,
+    letterSpacing: '0.15px',
+    lineHeight: '20px'
+  },
+  'body2-mono': {
+    fontFamily: 'Inter, monospace',
+    fontSize: '14px',
+    letterSpacing: '0.3px',
+    lineHeight: '20px'
+  },
+  caption: {
+    fontFamily: 'Inter',
+    color: palette.text.secondary,
+    fontWeight: 400,
+    fontSize: '12px',
+    letterSpacing: '0.4px',
+    lineHeight: '20px'
+  },
+  overline: {
+    fontFamily: 'Inter, monospace',
+    fontWeight: 400,
+    fontSize: '14px',
+    letterSpacing: '0.3px',
+    lineHeight: '21px'
+  }
+};
+
+var theme$1 = core.createMuiTheme({
+  palette: palette,
+  typography: typography,
+  overrides: overrides,
+  breakpoints: breakpoints,
+  zIndex: {
+    appBar: 1200,
+    drawer: 1100
+  }
+});
+
+var ThemeWrapper = function ThemeWrapper(_ref) {
+  var children = _ref.children;
+  return /*#__PURE__*/React.createElement(styles.ThemeProvider, {
+    theme: theme$1
+  }, children);
+};
+
+var useStyles = styles.makeStyles(function (theme) {
+  var _root, _button, _arrowSize;
 
   return {
     root: (_root = {
-      padding: '24px',
-      borderRadius: '0px'
-    }, _root[theme.breakpoints.down('sm')] = {
+      borderRadius: '0px',
       padding: '16px'
+    }, _root[theme.breakpoints.up('md')] = {
+      padding: '24px'
     }, _root),
     bullet: {
       display: 'inline-block',
       margin: '0 2px',
       transform: 'scale(0.8)'
     },
-    title: (_title = {
-      marginBottom: '58px',
+    title: {
       marginLeft: '2px'
-    }, _title[theme.breakpoints.down('sm')] = {
-      marginBottom: '56px'
-    }, _title),
+    },
+    button: (_button = {
+      marginLeft: '2px',
+      display: 'inline-flex',
+      marginTop: '24px',
+      color: 'white'
+    }, _button[theme.breakpoints.up('md')] = {
+      marginTop: '40px'
+    }, _button['&:hover'] = {
+      '&:$arrowSize': {
+        marginLeft: '12px'
+      }
+    }, _button),
     pos: {
       marginBottom: 12
     },
@@ -1134,49 +1572,47 @@ var TypographyTeaser = function TypographyTeaser(_ref) {
       backgroundColor = _ref.backgroundColor,
       buttonText = _ref.buttonText,
       buttonVariant = _ref.buttonVariant,
-      buttonBackground = _ref.buttonBackground,
-      buttonTextColor = _ref.buttonTextColor;
+      style = _ref.style,
+      className = _ref.className;
   var classes = useStyles();
-  return /*#__PURE__*/React.createElement(core.Card, {
-    className: classes.root,
+  console.log(backgroundColor);
+  return /*#__PURE__*/React.createElement(ThemeWrapper, null, /*#__PURE__*/React.createElement(core.Card, {
+    className: clsx(classes.root, className),
     raised: true,
-    style: {
-      background: colors[backgroundColor],
+    style: _extends({
+      background: backgroundColor ? colors[backgroundColor] : 'white',
       boxShadow: backgroundColor ? 'none' : '0px 5px 10px -10px rgba(0, 0, 0, 0.03), 0px 9px 30px 2px rgba(0, 0, 0, 0.1)'
-    }
+    }, style)
   }, /*#__PURE__*/React.createElement(core.CardContent, {
     className: classes.CardContent
   }, /*#__PURE__*/React.createElement(core.Typography, {
     className: classes.title,
     variant: "h3",
     style: {
-      color: colors[textColor] || 'white'
+      color: backgroundColor ? 'white' : colors[textColor]
     }
   }, title), /*#__PURE__*/React.createElement("div", {
-    style: {
-      marginLeft: '2px',
-      color: !backgroundColor ? colors[textColor] : 'white',
-      display: 'inline-flex'
-    }
+    className: classes.button
   }, /*#__PURE__*/React.createElement(core.Button, {
+    size: "medium",
+    disableElevation: true,
     variant: buttonVariant,
     endIcon: /*#__PURE__*/React.createElement(ArrowForwardIcon, {
       className: classes.arrowSize
     }),
     style: {
-      color: colors[buttonTextColor],
-      backgroundColor: buttonVariant !== 'text' && colors[buttonBackground],
+      color: backgroundColor ? colors['primary'] : colors[textColor],
+      padding: !backgroundColor && '0px',
+      backgroundColor: !backgroundColor ? '' : '#ffffff',
       borderRadius: '20px'
     }
-  }, buttonText))));
+  }, buttonText)))));
 };
 TypographyTeaser.propTypes = {
   title: propTypes.string,
   url: propTypes.string,
-  textColor: propTypes.oneOf(['white', 'primary', 'success', 'warning', 'error', 'purple']),
-  backgroundColor: propTypes.oneOf(['white', 'primary', 'success', 'warning', 'error', 'purple']),
-  buttonTextColor: propTypes.oneOf(['white', 'primary', 'success', 'warning', 'error', 'purple']),
-  buttonBackground: propTypes.oneOf(['white', 'primary', 'success', 'warning', 'error', 'purple']),
+  flex: propTypes.number,
+  textColor: propTypes.oneOf(['primary', 'success', 'warning', 'error', 'purple']),
   buttonText: propTypes.string.isRequired,
   buttonLink: propTypes.string.isRequired,
   buttonVariant: propTypes.oneOf(['contained', 'text']),
@@ -1185,11 +1621,9 @@ TypographyTeaser.propTypes = {
 TypographyTeaser.defaultProps = {
   title: 'This is a typography teaser',
   url: '',
+  flex: 2,
   textColor: '',
-  backgroundColor: 'purple',
   buttonText: 'Continue',
-  buttonTextColor: 'primary',
-  buttonBackground: 'white',
   buttonLink: propTypes.string.isRequired,
   buttonVariant: 'contained',
   onClick: function onClick(f) {
@@ -1197,13 +1631,132 @@ TypographyTeaser.defaultProps = {
   }
 };
 
-var ExampleComponent = function ExampleComponent(_ref) {
-  var text = _ref.text;
-  return /*#__PURE__*/React.createElement("div", {
-    className: styles.test
-  }, "Example Component: ", text);
+var useStyles$1 = styles.makeStyles(function (theme) {
+  var _root, _arrowSize;
+
+  return {
+    root: (_root = {
+      minWidth: '390px',
+      maxWidth: '390px',
+      borderRadius: '0px',
+      height: 'auto',
+      padding: '16px',
+      paddingTop: '0px'
+    }, _root[theme.breakpoints.only('xs')] = {
+      maxWidth: '264px',
+      minWidth: '264px'
+    }, _root[theme.breakpoints.only('sm')] = {
+      maxWidth: '318px',
+      minWidth: '318px'
+    }, _root[theme.breakpoints.only('md')] = {
+      maxWidth: '282px',
+      minWidth: '282px'
+    }, _root[theme.breakpoints.only('lg')] = {
+      maxWidth: '280px',
+      minWidth: '280px'
+    }, _root),
+    bullet: {
+      display: 'inline-block',
+      margin: '0 2px',
+      transform: 'scale(0.8)'
+    },
+    title: {
+      marginBottom: '24px'
+    },
+    button: {
+      marginLeft: '2px',
+      display: 'inline-flex',
+      marginTop: '32px',
+      marginBottom: '24px'
+    },
+    pos: {
+      marginBottom: 12
+    },
+    CardContent: {
+      padding: '0px!important',
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'space-between'
+    },
+    arrowSize: (_arrowSize = {}, _arrowSize[theme.breakpoints.down('sm')] = {
+      fontSize: '22px'
+    }, _arrowSize)
+  };
+});
+var ColoredLineCard = function ColoredLineCard(_ref) {
+  var type = _ref.type,
+      description = _ref.description,
+      title = _ref.title,
+      color = _ref.color,
+      buttonText = _ref.buttonText,
+      buttonVariant = _ref.buttonVariant,
+      style = _ref.style,
+      className = _ref.className;
+  var classes = useStyles$1();
+  return /*#__PURE__*/React.createElement(ThemeWrapper, null, /*#__PURE__*/React.createElement(core.Card, {
+    className: clsx(classes.root, className),
+    raised: true,
+    style: _extends({
+      borderTop: "4px solid " + colors[color],
+      boxShadow: '0px 5px 10px -10px rgba(0, 0, 0, 0.03), 0px 9px 30px 2px rgba(0, 0, 0, 0.1)'
+    }, style)
+  }, /*#__PURE__*/React.createElement(core.CardContent, {
+    className: classes.CardContent,
+    style: {
+      alignItems: description ? '' : 'center'
+    }
+  }, /*#__PURE__*/React.createElement(core.Typography, {
+    variant: "h3",
+    style: {
+      color: colors[color] || 'white',
+      textAlign: description ? 'left' : 'center',
+      marginTop: '32px'
+    }
+  }, title), description && /*#__PURE__*/React.createElement(core.Typography, {
+    color: "textSecondary",
+    style: {
+      marginTop: '8px',
+      color: colors[color] || 'white'
+    }
+  }, description), type === 'withButton' && /*#__PURE__*/React.createElement("div", {
+    className: classes.button,
+    style: {
+      color: !color ? colors[textColor] : 'white'
+    }
+  }, /*#__PURE__*/React.createElement(core.Button, {
+    size: "medium",
+    disableElevation: true,
+    variant: buttonVariant,
+    color: "primary"
+  }, buttonText)))));
+};
+ColoredLineCard.propTypes = {
+  title: propTypes.string.isRequired,
+  description: propTypes.string,
+  url: propTypes.string,
+  flex: propTypes.number,
+  type: propTypes.oneOf(['standard', 'withButton']),
+  color: propTypes.oneOf(['white', 'success', 'warning', 'error', 'purple']),
+  buttonText: propTypes.string.isRequired,
+  buttonLink: propTypes.string.isRequired,
+  buttonVariant: propTypes.oneOf(['contained', 'text']),
+  onClick: propTypes.func
+};
+ColoredLineCard.defaultProps = {
+  title: 'This is a typography teaser',
+  description: '',
+  url: '',
+  flex: 2,
+  type: 'standard',
+  color: 'warning',
+  buttonText: 'Button',
+  buttonLink: propTypes.string.isRequired,
+  buttonVariant: 'contained',
+  onClick: function onClick(f) {
+    return f;
+  }
 };
 
-exports.ExampleComponent = ExampleComponent;
+exports.ColoredLineCard = ColoredLineCard;
 exports.TypographyTeaser = TypographyTeaser;
 //# sourceMappingURL=index.js.map
