@@ -1674,8 +1674,7 @@ var ColoredLineCard = function ColoredLineCard(_ref) {
   }, title), description && /*#__PURE__*/React.createElement(core.Typography, {
     color: "textSecondary",
     style: {
-      marginTop: '8px',
-      color: colors[color] || 'white'
+      marginTop: '8px'
     }
   }, description), type === 'withButton' && /*#__PURE__*/React.createElement("div", {
     className: classes.button,
