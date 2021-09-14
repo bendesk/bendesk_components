@@ -68,7 +68,7 @@ export const ColoredLineCard = ({ type, description, title, url, color, buttonTe
   return (
     <ThemeWrapper >
       <Card
-        className={clsx(classes.root, className) }
+        className={[classes.root, className].join(' ')}
         raised
         style={{
           borderTop: `4px solid ${colors[color]}`,

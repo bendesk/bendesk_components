@@ -1,6 +1,5 @@
 import { Button, Card, CardContent, Link, Typography } from '@material-ui/core'
 import React from 'react'
-import clsx from 'clsx'
 import styles from './styles.module.css'
 import { makeStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
@@ -64,7 +63,7 @@ export const TypographyTeaser = ({ text, title, url, textColor, backgroundColor,
     <ThemeWrapper >
 
       <Card
-        className={clsx(classes.root, className)}
+        className={[classes.root, className].join(' ')}
         raised
         style={{
           background: backgroundColor ? colors[backgroundColor] : 'white',

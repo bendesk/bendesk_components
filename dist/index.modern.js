@@ -21,47 +21,6 @@ function _extends() {
   return _extends.apply(this, arguments);
 }
 
-function toVal(mix) {
-	var k, y, str='';
-
-	if (typeof mix === 'string' || typeof mix === 'number') {
-		str += mix;
-	} else if (typeof mix === 'object') {
-		if (Array.isArray(mix)) {
-			for (k=0; k < mix.length; k++) {
-				if (mix[k]) {
-					if (y = toVal(mix[k])) {
-						str && (str += ' ');
-						str += y;
-					}
-				}
-			}
-		} else {
-			for (k in mix) {
-				if (mix[k]) {
-					str && (str += ' ');
-					str += k;
-				}
-			}
-		}
-	}
-
-	return str;
-}
-
-function clsx () {
-	var i=0, tmp, x, str='';
-	while (i < arguments.length) {
-		if (tmp = arguments[i++]) {
-			if (x = toVal(tmp)) {
-				str && (str += ' ');
-				str += x;
-			}
-		}
-	}
-	return str;
-}
-
 function createCommonjsModule(fn, module) {
 	return module = { exports: {} }, fn(module, module.exports), module.exports;
 }
@@ -1575,7 +1534,7 @@ var TypographyTeaser = function TypographyTeaser(_ref) {
   var classes = useStyles();
   console.log(backgroundColor);
   return /*#__PURE__*/React.createElement(ThemeWrapper, null, /*#__PURE__*/React.createElement(Card, {
-    className: clsx(classes.root, className),
+    className: [classes.root, className].join(' '),
     raised: true,
     style: _extends({
       background: backgroundColor ? colors[backgroundColor] : 'white',
@@ -1692,7 +1651,7 @@ var ColoredLineCard = function ColoredLineCard(_ref) {
       className = _ref.className;
   var classes = useStyles$1();
   return /*#__PURE__*/React.createElement(ThemeWrapper, null, /*#__PURE__*/React.createElement(Card, {
-    className: clsx(classes.root, className),
+    className: [classes.root, className].join(' '),
     raised: true,
     style: _extends({
       borderTop: "4px solid " + colors[color],
