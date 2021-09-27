@@ -1632,6 +1632,7 @@ var useStyles$1 = makeStyles(function (theme) {
     CardContent: {
       padding: '0px!important',
       display: 'flex',
+      height: '100%',
       flexDirection: 'column',
       justifyContent: 'space-between'
     },

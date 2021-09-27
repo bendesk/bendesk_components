@@ -52,6 +52,7 @@ const useStyles = makeStyles(theme => ({
   CardContent: {
     padding: '0px!important',
     display: 'flex',
+    height: '100%',
     flexDirection: 'column',
     justifyContent: 'space-between'
     // height: '130px'
