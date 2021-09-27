@@ -9,28 +9,28 @@ import colors from '../Shared/colors';
 import { ThemeWrapper } from '../theme/ThemeWrapper';
 const useStyles = makeStyles(theme => ({
   root: {
-    minWidth: '390px',
-    maxWidth: '390px',
+    // minWidth: '390px',
+    // maxWidth: '390px',
     borderRadius: '0px',
     height: 'auto',
     padding: '16px',
     paddingTop: '0px',
-    [theme.breakpoints.only('xs')]: {
-      maxWidth: '264px',
-      minWidth: '264px'
-    },
-    [theme.breakpoints.only('sm')]: {
-      maxWidth: '318px',
-      minWidth: '318px'
-    },
-    [theme.breakpoints.only('md')]: {
-      maxWidth: '282px',
-      minWidth: '282px'
-    },
-    [theme.breakpoints.only('lg')]: {
-      maxWidth: '280px',
-      minWidth: '280px'
-    },
+    // [theme.breakpoints.only('xs')]: {
+    //   maxWidth: '264px',
+    //   minWidth: '264px'
+    // },
+    // [theme.breakpoints.only('sm')]: {
+    //   maxWidth: '318px',
+    //   minWidth: '318px'
+    // },
+    // [theme.breakpoints.only('md')]: {
+    //   maxWidth: '282px',
+    //   minWidth: '282px'
+    // },
+    // [theme.breakpoints.only('lg')]: {
+    //   maxWidth: '280px',
+    //   minWidth: '280px'
+    // },
   },
   bullet: {
     display: 'inline-block',

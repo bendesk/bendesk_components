@@ -1599,29 +1599,15 @@ TypographyTeaser.defaultProps = {
 };
 
 var useStyles$1 = makeStyles(function (theme) {
-  var _root, _arrowSize;
+  var _arrowSize;
 
   return {
-    root: (_root = {
-      minWidth: '390px',
-      maxWidth: '390px',
+    root: {
       borderRadius: '0px',
       height: 'auto',
       padding: '16px',
       paddingTop: '0px'
-    }, _root[theme.breakpoints.only('xs')] = {
-      maxWidth: '264px',
-      minWidth: '264px'
-    }, _root[theme.breakpoints.only('sm')] = {
-      maxWidth: '318px',
-      minWidth: '318px'
-    }, _root[theme.breakpoints.only('md')] = {
-      maxWidth: '282px',
-      minWidth: '282px'
-    }, _root[theme.breakpoints.only('lg')] = {
-      maxWidth: '280px',
-      minWidth: '280px'
-    }, _root),
+    },
     bullet: {
       display: 'inline-block',
       margin: '0 2px',
