@@ -53,7 +53,15 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.down('sm')]: {
       fontSize: '22px'
     },
+  },
+  hoverBtn: {
+    display: 'inline-flex',
+    '&:hover': {
+      // color: '#0E53BA',
+      gap: '4px'
+    }
   }
+
 }));
 
 export const TypographyTeaser = ({ text, title, url, textColor, backgroundColor, buttonText, buttonVariant, buttonBackground, buttonTextColor, style, className }) => {
@@ -86,12 +94,13 @@ export const TypographyTeaser = ({ text, title, url, textColor, backgroundColor,
           <div
             className={classes.button}
           >
-            <Button size="medium" disableElevation variant={buttonVariant} endIcon={<ArrowForwardIcon className={classes.arrowSize} />}
+            <Button size="medium" disableElevation variant={buttonVariant} 
               style={{
-                color: backgroundColor ? colors['primary'] : colors[textColor], padding: !backgroundColor && '0px',
+                color: backgroundColor ? colors['blue'] : colors[textColor], padding: !backgroundColor && '0px',
                 backgroundColor: !backgroundColor ? '' : '#ffffff', borderRadius: '20px'
               }}>
-              {buttonText}
+                <div className={buttonVariant==='text' && !backgroundColor && classes.hoverBtn} style={{display: 'inline-flex'}}>{buttonText} <ArrowForwardIcon className={classes.arrowSize} /></div>
+              
             </Button>
           </div>
         </CardContent>
@@ -104,7 +113,7 @@ TypographyTeaser.propTypes = {
   title: PropTypes.string,
   url: PropTypes.string,
   flex: PropTypes.number,
-  textColor: PropTypes.oneOf(['primary', 'success', 'warning', 'error', 'purple']),
+  textColor: PropTypes.oneOf(['blue', 'success', 'warning', 'error', 'purple']),
   // backgroundColor: PropTypes.oneOf(['blue', 'success', 'warning', 'error', 'purple']),
   // buttonTextColor: PropTypes.oneOf(['blue', 'success', 'warning', 'error', 'purple']),
   // buttonBackground: PropTypes.oneOf(['blue', 'success', 'warning', 'error', 'purple']),

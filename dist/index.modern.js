@@ -1099,7 +1099,7 @@ if (process.env.NODE_ENV !== 'production') {
 });
 
 var colors = {
-  primary: '#126AEF',
+  blue: '#126AEF',
   white: '#ffffff',
   purple: '#8A85FF',
   error: '#FF6848',
@@ -1520,7 +1520,13 @@ var useStyles = makeStyles(function (theme) {
     },
     arrowSize: (_arrowSize = {}, _arrowSize[theme.breakpoints.down('sm')] = {
       fontSize: '22px'
-    }, _arrowSize)
+    }, _arrowSize),
+    hoverBtn: {
+      display: 'inline-flex',
+      '&:hover': {
+        gap: '4px'
+      }
+    }
   };
 });
 var TypographyTeaser = function TypographyTeaser(_ref) {
@@ -1554,22 +1560,26 @@ var TypographyTeaser = function TypographyTeaser(_ref) {
     size: "medium",
     disableElevation: true,
     variant: buttonVariant,
-    endIcon: /*#__PURE__*/React.createElement(ArrowForwardIcon, {
-      className: classes.arrowSize
-    }),
     style: {
-      color: backgroundColor ? colors['primary'] : colors[textColor],
+      color: backgroundColor ? colors['blue'] : colors[textColor],
       padding: !backgroundColor && '0px',
       backgroundColor: !backgroundColor ? '' : '#ffffff',
       borderRadius: '20px'
     }
-  }, buttonText)))));
+  }, /*#__PURE__*/React.createElement("div", {
+    className: buttonVariant === 'text' && !backgroundColor && classes.hoverBtn,
+    style: {
+      display: 'inline-flex'
+    }
+  }, buttonText, " ", /*#__PURE__*/React.createElement(ArrowForwardIcon, {
+    className: classes.arrowSize
+  })))))));
 };
 TypographyTeaser.propTypes = {
   title: propTypes.string,
   url: propTypes.string,
   flex: propTypes.number,
-  textColor: propTypes.oneOf(['primary', 'success', 'warning', 'error', 'purple']),
+  textColor: propTypes.oneOf(['blue', 'success', 'warning', 'error', 'purple']),
   buttonText: propTypes.string.isRequired,
   buttonLink: propTypes.string.isRequired,
   buttonVariant: propTypes.oneOf(['contained', 'text']),
