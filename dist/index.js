@@ -1,9 +1,13 @@
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
 var React = _interopDefault(require('react'));
-var core = require('@material-ui/core');
+var Button = _interopDefault(require('@material-ui/core/Button'));
+var Card = _interopDefault(require('@material-ui/core/Card'));
+var CardContent = _interopDefault(require('@material-ui/core/CardContent'));
+var Typography = _interopDefault(require('@material-ui/core/Typography'));
 var styles = require('@material-ui/core/styles');
 var ArrowForwardIcon = _interopDefault(require('@material-ui/icons/ArrowForward'));
+var core = require('@material-ui/core');
 
 function _extends() {
   _extends = Object.assign || function (target) {
@@ -1540,17 +1544,16 @@ var TypographyTeaser = function TypographyTeaser(_ref) {
       style = _ref.style,
       className = _ref.className;
   var classes = useStyles();
-  console.log(backgroundColor);
-  return /*#__PURE__*/React.createElement(ThemeWrapper, null, /*#__PURE__*/React.createElement(core.Card, {
+  return /*#__PURE__*/React.createElement(ThemeWrapper, null, /*#__PURE__*/React.createElement(Card, {
     className: [classes.root, className].join(' '),
     raised: true,
     style: _extends({
       background: backgroundColor ? colors[backgroundColor] : 'white',
       boxShadow: backgroundColor ? 'none' : '0px 5px 10px -10px rgba(0, 0, 0, 0.03), 0px 9px 30px 2px rgba(0, 0, 0, 0.1)'
     }, style)
-  }, /*#__PURE__*/React.createElement(core.CardContent, {
+  }, /*#__PURE__*/React.createElement(CardContent, {
     className: classes.CardContent
-  }, /*#__PURE__*/React.createElement(core.Typography, {
+  }, /*#__PURE__*/React.createElement(Typography, {
     className: classes.title,
     variant: "h3",
     style: {
@@ -1558,12 +1561,12 @@ var TypographyTeaser = function TypographyTeaser(_ref) {
     }
   }, title), /*#__PURE__*/React.createElement("div", {
     className: classes.button
-  }, /*#__PURE__*/React.createElement(core.Button, {
+  }, /*#__PURE__*/React.createElement(Button, {
     size: "medium",
     disableElevation: true,
     variant: buttonVariant,
     style: {
-      color: backgroundColor ? colors['blue'] : colors[textColor],
+      color: backgroundColor ? colors.blue : colors[textColor],
       padding: !backgroundColor && '0px',
       backgroundColor: !backgroundColor ? '' : '#ffffff',
       borderRadius: '20px'
@@ -1601,15 +1604,29 @@ TypographyTeaser.defaultProps = {
 };
 
 var useStyles$1 = styles.makeStyles(function (theme) {
-  var _arrowSize;
+  var _root, _arrowSize;
 
   return {
-    root: {
+    root: (_root = {
+      minWidth: '390px',
+      maxWidth: '390px',
       borderRadius: '0px',
       height: 'auto',
       padding: '16px',
       paddingTop: '0px'
-    },
+    }, _root[theme.breakpoints.only('xs')] = {
+      maxWidth: '264px',
+      minWidth: '264px'
+    }, _root[theme.breakpoints.only('sm')] = {
+      maxWidth: '318px',
+      minWidth: '318px'
+    }, _root[theme.breakpoints.only('md')] = {
+      maxWidth: '282px',
+      minWidth: '282px'
+    }, _root[theme.breakpoints.only('lg')] = {
+      maxWidth: '280px',
+      minWidth: '280px'
+    }, _root),
     bullet: {
       display: 'inline-block',
       margin: '0 2px',
@@ -1649,26 +1666,26 @@ var ColoredLineCard = function ColoredLineCard(_ref) {
       style = _ref.style,
       className = _ref.className;
   var classes = useStyles$1();
-  return /*#__PURE__*/React.createElement(ThemeWrapper, null, /*#__PURE__*/React.createElement(core.Card, {
+  return /*#__PURE__*/React.createElement(ThemeWrapper, null, /*#__PURE__*/React.createElement(Card, {
     className: [classes.root, className].join(' '),
     raised: true,
     style: _extends({
       borderTop: "4px solid " + colors[color],
       boxShadow: '0px 5px 10px -10px rgba(0, 0, 0, 0.03), 0px 9px 30px 2px rgba(0, 0, 0, 0.1)'
     }, style)
-  }, /*#__PURE__*/React.createElement(core.CardContent, {
+  }, /*#__PURE__*/React.createElement(CardContent, {
     className: classes.CardContent,
     style: {
       alignItems: description ? '' : 'center'
     }
-  }, /*#__PURE__*/React.createElement(core.Typography, {
+  }, /*#__PURE__*/React.createElement(Typography, {
     variant: "h3",
     style: {
       color: colors[color] || 'white',
       textAlign: description ? 'left' : 'center',
       marginTop: '32px'
     }
-  }, title), description && /*#__PURE__*/React.createElement(core.Typography, {
+  }, title), description && /*#__PURE__*/React.createElement(Typography, {
     color: "textSecondary",
     style: {
       marginTop: '8px'
@@ -1678,7 +1695,7 @@ var ColoredLineCard = function ColoredLineCard(_ref) {
     style: {
       color: !color ? colors[textColor] : 'white'
     }
-  }, /*#__PURE__*/React.createElement(core.Button, {
+  }, /*#__PURE__*/React.createElement(Button, {
     size: "medium",
     disableElevation: true,
     variant: buttonVariant,

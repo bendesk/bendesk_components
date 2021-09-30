@@ -1,6 +1,8 @@
-import { Button, Card, CardContent, Link, Typography } from '@material-ui/core'
+import Button from '@material-ui/core/Button';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import Typography from '@material-ui/core/Typography';
 import React from 'react'
-import styles from './styles.module.css'
 import { makeStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
@@ -66,7 +68,6 @@ const useStyles = makeStyles(theme => ({
 
 export const TypographyTeaser = ({ text, title, url, textColor, backgroundColor, buttonText, buttonVariant, buttonBackground, buttonTextColor, style, className }) => {
   const classes = useStyles();
-  console.log(backgroundColor);
   return (
     <ThemeWrapper >
 
@@ -94,13 +95,13 @@ export const TypographyTeaser = ({ text, title, url, textColor, backgroundColor,
           <div
             className={classes.button}
           >
-            <Button size="medium" disableElevation variant={buttonVariant} 
+            <Button size="medium" disableElevation variant={buttonVariant}
               style={{
-                color: backgroundColor ? colors['blue'] : colors[textColor], padding: !backgroundColor && '0px',
+                color: backgroundColor ? colors.blue : colors[textColor], padding: !backgroundColor && '0px',
                 backgroundColor: !backgroundColor ? '' : '#ffffff', borderRadius: '20px'
               }}>
-                <div className={buttonVariant==='text' && !backgroundColor && classes.hoverBtn} style={{display: 'inline-flex'}}>{buttonText} <ArrowForwardIcon className={classes.arrowSize} /></div>
-              
+              <div className={buttonVariant === 'text' && !backgroundColor && classes.hoverBtn} style={{ display: 'inline-flex' }}>{buttonText} <ArrowForwardIcon className={classes.arrowSize} /></div>
+
             </Button>
           </div>
         </CardContent>

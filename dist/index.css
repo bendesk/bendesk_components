@@ -10,16 +10,6 @@
 ._3ApX9{
   border-radius: 0px !important;
 }
-/* add css module styles here (optional) */
-
-._2KYEg {
-  margin: 2em;
-  padding: 0.5em;
-  border: 2px solid #000;
-  font-size: 2em;
-  text-align: center;
-}
-
 @font-face {
     font-family: 'Founders Grotesk';
     font-style:  normal;
@@ -236,14 +226,4 @@ explicitly, e.g.
   font-display: swap;
   font-style: oblique 0deg 10deg;
   src: url("Inter.var.woff2?v=3.15") format("woff2");
-}
-
-/* add css module styles here (optional) */
-
-._1Shg5 {
-  margin: 2em;
-  padding: 0.5em;
-  border: 2px solid #000;
-  font-size: 2em;
-  text-align: center;
 }

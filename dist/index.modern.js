@@ -1,7 +1,11 @@
 import React from 'react';
-import { colors as colors$1, createMuiTheme, Card, CardContent, Typography, Button } from '@material-ui/core';
+import Button from '@material-ui/core/Button';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import Typography from '@material-ui/core/Typography';
 import { ThemeProvider, makeStyles } from '@material-ui/core/styles';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
+import { colors as colors$1, createMuiTheme } from '@material-ui/core';
 
 function _extends() {
   _extends = Object.assign || function (target) {
@@ -1538,7 +1542,6 @@ var TypographyTeaser = function TypographyTeaser(_ref) {
       style = _ref.style,
       className = _ref.className;
   var classes = useStyles();
-  console.log(backgroundColor);
   return /*#__PURE__*/React.createElement(ThemeWrapper, null, /*#__PURE__*/React.createElement(Card, {
     className: [classes.root, className].join(' '),
     raised: true,
@@ -1561,7 +1564,7 @@ var TypographyTeaser = function TypographyTeaser(_ref) {
     disableElevation: true,
     variant: buttonVariant,
     style: {
-      color: backgroundColor ? colors['blue'] : colors[textColor],
+      color: backgroundColor ? colors.blue : colors[textColor],
       padding: !backgroundColor && '0px',
       backgroundColor: !backgroundColor ? '' : '#ffffff',
       borderRadius: '20px'
@@ -1599,15 +1602,29 @@ TypographyTeaser.defaultProps = {
 };
 
 var useStyles$1 = makeStyles(function (theme) {
-  var _arrowSize;
+  var _root, _arrowSize;
 
   return {
-    root: {
+    root: (_root = {
+      minWidth: '390px',
+      maxWidth: '390px',
       borderRadius: '0px',
       height: 'auto',
       padding: '16px',
       paddingTop: '0px'
-    },
+    }, _root[theme.breakpoints.only('xs')] = {
+      maxWidth: '264px',
+      minWidth: '264px'
+    }, _root[theme.breakpoints.only('sm')] = {
+      maxWidth: '318px',
+      minWidth: '318px'
+    }, _root[theme.breakpoints.only('md')] = {
+      maxWidth: '282px',
+      minWidth: '282px'
+    }, _root[theme.breakpoints.only('lg')] = {
+      maxWidth: '280px',
+      minWidth: '280px'
+    }, _root),
     bullet: {
       display: 'inline-block',
       margin: '0 2px',

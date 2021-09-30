@@ -1,7 +1,8 @@
-import { Button, Card, CardContent, Link, Typography } from '@material-ui/core'
+import Button from '@material-ui/core/Button';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import Typography from '@material-ui/core/Typography';
 import React from 'react'
-import clsx from 'clsx'
-import styles from './styles.module.css'
 import { makeStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
@@ -9,28 +10,28 @@ import colors from '../Shared/colors';
 import { ThemeWrapper } from '../theme/ThemeWrapper';
 const useStyles = makeStyles(theme => ({
   root: {
-    // minWidth: '390px',
-    // maxWidth: '390px',
+    minWidth: '390px',
+    maxWidth: '390px',
     borderRadius: '0px',
     height: 'auto',
     padding: '16px',
     paddingTop: '0px',
-    // [theme.breakpoints.only('xs')]: {
-    //   maxWidth: '264px',
-    //   minWidth: '264px'
-    // },
-    // [theme.breakpoints.only('sm')]: {
-    //   maxWidth: '318px',
-    //   minWidth: '318px'
-    // },
-    // [theme.breakpoints.only('md')]: {
-    //   maxWidth: '282px',
-    //   minWidth: '282px'
-    // },
-    // [theme.breakpoints.only('lg')]: {
-    //   maxWidth: '280px',
-    //   minWidth: '280px'
-    // },
+    [theme.breakpoints.only('xs')]: {
+      maxWidth: '264px',
+      minWidth: '264px'
+    },
+    [theme.breakpoints.only('sm')]: {
+      maxWidth: '318px',
+      minWidth: '318px'
+    },
+    [theme.breakpoints.only('md')]: {
+      maxWidth: '282px',
+      minWidth: '282px'
+    },
+    [theme.breakpoints.only('lg')]: {
+      maxWidth: '280px',
+      minWidth: '280px'
+    },
   },
   bullet: {
     display: 'inline-block',
