@@ -1,4 +1,5 @@
 import React from 'react'
+import colors from '../Shared/colors'
 
 import { TypographyTeaser } from '../TypographyTeaser'
 
@@ -11,7 +12,7 @@ const Template = (args) => <TypographyTeaser {...args} />
 
 export const BlueBackground = Template.bind({})
 BlueBackground.args = {
-  backgroundColor: 'blue',
+  backgroundColor: colors.blue,
   textColor: ''
 }
 

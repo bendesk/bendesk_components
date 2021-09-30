@@ -1546,7 +1546,7 @@ var TypographyTeaser = function TypographyTeaser(_ref) {
     className: [classes.root, className].join(' '),
     raised: true,
     style: _extends({
-      background: backgroundColor ? colors[backgroundColor] : 'white',
+      background: backgroundColor || 'white',
       boxShadow: backgroundColor ? 'none' : '0px 5px 10px -10px rgba(0, 0, 0, 0.03), 0px 9px 30px 2px rgba(0, 0, 0, 0.1)'
     }, style)
   }, /*#__PURE__*/React.createElement(CardContent, {
