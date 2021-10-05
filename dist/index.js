@@ -1810,8 +1810,15 @@ var InfoWithIcon = function InfoWithIcon(_ref) {
     style: _extends({}, style)
   }, /*#__PURE__*/React.createElement("div", {
     className: classes.CardContent
-  }, /*#__PURE__*/React.createElement("div", null, headerIcon), /*#__PURE__*/React.createElement(Typography, {
-    variant: "h3"
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginBottom: '24px'
+    }
+  }, headerIcon), /*#__PURE__*/React.createElement(Typography, {
+    variant: "h3",
+    style: {
+      marginBottom: '24px'
+    }
   }, title), /*#__PURE__*/React.createElement("p", {
     className: classes.content,
     variant: "h3"

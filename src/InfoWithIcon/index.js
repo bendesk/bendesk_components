@@ -1,5 +1,3 @@
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles';
@@ -67,7 +65,7 @@ const useStyles = makeStyles(theme => ({
   children: {
     marginTop: '24px',
     width: '60%',
-    [theme.breakpoints.down('sm')]:{
+    [theme.breakpoints.down('sm')]: {
       width: '100%'
     }
     // marginBottom: '24px'
@@ -76,12 +74,11 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
-export const InfoWithIcon = ({title,  style, className, description, headerIcon }) => {
+export const InfoWithIcon = ({ title, style, className, description, headerIcon }) => {
   const classes = useStyles();
-  const Icon = <SpaOutlinedIcon style={{fontSize: '4.5rem'}} />;
+  const Icon = <SpaOutlinedIcon style={{ fontSize: '4.5rem' }} />;
   return (
     <ThemeWrapper >
-
       <div
         className={[classes.root, className].join(' ')}
         style={{
@@ -89,12 +86,13 @@ export const InfoWithIcon = ({title,  style, className, description, headerIcon 
         }}
       >
         <div className={classes.CardContent}>
-          <div>
+          <div style={{ marginBottom: '24px' }}>
 
-          {headerIcon}
+            {headerIcon}
           </div>
           <Typography
             variant="h3"
+            style={{ marginBottom: '24px' }}
           >
             {title}
           </Typography>
@@ -104,8 +102,8 @@ export const InfoWithIcon = ({title,  style, className, description, headerIcon 
           >
             {description}
           </p>
-          
-         
+
+
         </div>
       </div>
     </ThemeWrapper>
