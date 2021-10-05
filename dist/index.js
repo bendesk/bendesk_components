@@ -1486,7 +1486,7 @@ var ThemeWrapper = function ThemeWrapper(_ref) {
 };
 
 var useStyles = styles.makeStyles(function (theme) {
-  var _root, _button, _arrowSize;
+  var _root, _button, _arrowSize, _children;
 
   return {
     root: (_root = {
@@ -1532,7 +1532,13 @@ var useStyles = styles.makeStyles(function (theme) {
       '&:hover': {
         gap: '4px'
       }
-    }
+    },
+    children: (_children = {
+      marginTop: '24px',
+      width: '60%'
+    }, _children[theme.breakpoints.down('sm')] = {
+      width: '100%'
+    }, _children)
   };
 });
 var TypographyTeaser = function TypographyTeaser(_ref) {
@@ -1542,7 +1548,8 @@ var TypographyTeaser = function TypographyTeaser(_ref) {
       buttonText = _ref.buttonText,
       buttonVariant = _ref.buttonVariant,
       style = _ref.style,
-      className = _ref.className;
+      className = _ref.className,
+      content = _ref.content;
   var classes = useStyles();
   return /*#__PURE__*/React.createElement(ThemeWrapper, null, /*#__PURE__*/React.createElement(Card, {
     className: [classes.root, className].join(' '),
@@ -1559,7 +1566,9 @@ var TypographyTeaser = function TypographyTeaser(_ref) {
     style: {
       color: backgroundColor ? 'white' : colors[textColor]
     }
-  }, title), /*#__PURE__*/React.createElement("div", {
+  }, title), content && /*#__PURE__*/React.createElement("div", {
+    className: classes.children
+  }, content), /*#__PURE__*/React.createElement("div", {
     className: classes.button
   }, /*#__PURE__*/React.createElement(Button, {
     size: "medium",

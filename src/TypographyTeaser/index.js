@@ -8,6 +8,7 @@ import PropTypes from 'prop-types';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import colors from '../Shared/colors';
 import { ThemeWrapper } from '../theme/ThemeWrapper';
+import { TextField } from '@material-ui/core';
 const useStyles = makeStyles(theme => ({
   root: {
     borderRadius: '0px',
@@ -62,11 +63,20 @@ const useStyles = makeStyles(theme => ({
       // color: '#0E53BA',
       gap: '4px'
     }
+  },
+  children: {
+    marginTop: '24px',
+    width: '60%',
+    [theme.breakpoints.down('sm')]:{
+      width: '100%'
+    }
+    // marginBottom: '24px'
   }
 
 }));
 
-export const TypographyTeaser = ({ text, title, url, textColor, backgroundColor, buttonText, buttonVariant, buttonBackground, buttonTextColor, style, className }) => {
+
+export const TypographyTeaser = ({ text, title, url, textColor, backgroundColor, buttonText, buttonVariant, buttonBackground, buttonTextColor, style, className, content }) => {
   const classes = useStyles();
   return (
     <ThemeWrapper >
@@ -92,6 +102,9 @@ export const TypographyTeaser = ({ text, title, url, textColor, backgroundColor,
           >
             {title}
           </Typography>
+          {content && <div className={classes.children}>
+          {content}
+          </div>}
           <div
             className={classes.button}
           >
