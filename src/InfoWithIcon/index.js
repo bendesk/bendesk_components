@@ -7,11 +7,11 @@ import SpaOutlinedIcon from '@material-ui/icons/SpaOutlined';
 const useStyles = makeStyles(theme => ({
   root: {
     borderRadius: '0px',
-    padding: '16px',
-    [theme.breakpoints.up('md')]: {
-      padding: '24px'
-    },
-    width: '50%'
+    // padding: '16px',
+    // [theme.breakpoints.up('md')]: {
+    //   padding: '24px'
+    // },
+    // width: '50%'
   },
   bullet: {
     display: 'inline-block',
