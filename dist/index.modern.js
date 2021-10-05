@@ -6,6 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import { ThemeProvider, makeStyles } from '@material-ui/core/styles';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import { colors as colors$1, createMuiTheme } from '@material-ui/core';
+import SpaOutlinedIcon from '@material-ui/icons/SpaOutlined';
 
 function _extends() {
   _extends = Object.assign || function (target) {
@@ -1736,5 +1737,96 @@ ColoredLineCard.defaultProps = {
   }
 };
 
-export { ColoredLineCard, TypographyTeaser };
+var useStyles$2 = makeStyles(function (theme) {
+  var _root, _button, _arrowSize, _children;
+
+  return {
+    root: (_root = {
+      borderRadius: '0px',
+      padding: '16px'
+    }, _root[theme.breakpoints.up('md')] = {
+      padding: '24px'
+    }, _root.width = '50%', _root),
+    bullet: {
+      display: 'inline-block',
+      margin: '0 2px',
+      transform: 'scale(0.8)'
+    },
+    content: {
+      fontWeight: 400,
+      fontSize: '19px',
+      lineHeight: '24.7px',
+      fontFamily: 'Founders Grotesk'
+    },
+    button: (_button = {
+      marginLeft: '2px',
+      display: 'inline-flex',
+      marginTop: '24px',
+      color: 'white'
+    }, _button[theme.breakpoints.up('md')] = {
+      marginTop: '40px'
+    }, _button['&:hover'] = {
+      '&:$arrowSize': {
+        marginLeft: '12px'
+      }
+    }, _button),
+    pos: {
+      marginBottom: 12
+    },
+    CardContent: {
+      padding: '0px!important',
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'space-between'
+    },
+    arrowSize: (_arrowSize = {}, _arrowSize[theme.breakpoints.down('sm')] = {
+      fontSize: '22px'
+    }, _arrowSize),
+    hoverBtn: {
+      display: 'inline-flex',
+      '&:hover': {
+        gap: '4px'
+      }
+    },
+    children: (_children = {
+      marginTop: '24px',
+      width: '60%'
+    }, _children[theme.breakpoints.down('sm')] = {
+      width: '100%'
+    }, _children)
+  };
+});
+var InfoWithIcon = function InfoWithIcon(_ref) {
+  var title = _ref.title,
+      style = _ref.style,
+      className = _ref.className,
+      description = _ref.description;
+  var classes = useStyles$2();
+  var Icon = /*#__PURE__*/React.createElement(SpaOutlinedIcon, {
+    style: {
+      fontSize: '4.5rem'
+    }
+  });
+  return /*#__PURE__*/React.createElement(ThemeWrapper, null, /*#__PURE__*/React.createElement("div", {
+    className: [classes.root, className].join(' '),
+    style: _extends({}, style)
+  }, /*#__PURE__*/React.createElement("div", {
+    className: classes.CardContent
+  }, /*#__PURE__*/React.createElement("div", null, Icon), /*#__PURE__*/React.createElement(Typography, {
+    variant: "h3"
+  }, title), /*#__PURE__*/React.createElement("p", {
+    className: classes.content,
+    variant: "h3"
+  }, description))));
+};
+InfoWithIcon.propTypes = {
+  title: propTypes.string,
+  description: propTypes.string
+};
+InfoWithIcon.defaultProps = {
+  title: 'This is a typography teaser',
+  description: ''
+};
+
+export { ColoredLineCard, InfoWithIcon, TypographyTeaser };
 //# sourceMappingURL=index.modern.js.map

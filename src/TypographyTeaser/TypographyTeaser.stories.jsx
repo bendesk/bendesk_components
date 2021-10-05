@@ -6,7 +6,7 @@ import { TypographyTeaser } from '../TypographyTeaser'
 
 export default {
   title: 'Bendesk/TypographyTeaser',
-  component: TypographyTeaser,
+  component: TypographyTeaser
 }
 
 const Template = (args) => <TypographyTeaser {...args} />
