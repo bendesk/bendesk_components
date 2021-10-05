@@ -76,7 +76,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
-export const InfoWithIcon = ({title,  style, className, description }) => {
+export const InfoWithIcon = ({title,  style, className, description, headerIcon }) => {
   const classes = useStyles();
   const Icon = <SpaOutlinedIcon style={{fontSize: '4.5rem'}} />;
   return (
@@ -91,7 +91,7 @@ export const InfoWithIcon = ({title,  style, className, description }) => {
         <div className={classes.CardContent}>
           <div>
 
-          {Icon}
+          {headerIcon}
           </div>
           <Typography
             variant="h3"

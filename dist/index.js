@@ -8,7 +8,7 @@ var Typography = _interopDefault(require('@material-ui/core/Typography'));
 var styles = require('@material-ui/core/styles');
 var ArrowForwardIcon = _interopDefault(require('@material-ui/icons/ArrowForward'));
 var core = require('@material-ui/core');
-var SpaOutlinedIcon = _interopDefault(require('@material-ui/icons/SpaOutlined'));
+require('@material-ui/icons/SpaOutlined');
 
 function _extends() {
   _extends = Object.assign || function (target) {
@@ -1802,19 +1802,15 @@ var InfoWithIcon = function InfoWithIcon(_ref) {
   var title = _ref.title,
       style = _ref.style,
       className = _ref.className,
-      description = _ref.description;
+      description = _ref.description,
+      headerIcon = _ref.headerIcon;
   var classes = useStyles$2();
-  var Icon = /*#__PURE__*/React.createElement(SpaOutlinedIcon, {
-    style: {
-      fontSize: '4.5rem'
-    }
-  });
   return /*#__PURE__*/React.createElement(ThemeWrapper, null, /*#__PURE__*/React.createElement("div", {
     className: [classes.root, className].join(' '),
     style: _extends({}, style)
   }, /*#__PURE__*/React.createElement("div", {
     className: classes.CardContent
-  }, /*#__PURE__*/React.createElement("div", null, Icon), /*#__PURE__*/React.createElement(Typography, {
+  }, /*#__PURE__*/React.createElement("div", null, headerIcon), /*#__PURE__*/React.createElement(Typography, {
     variant: "h3"
   }, title), /*#__PURE__*/React.createElement("p", {
     className: classes.content,
