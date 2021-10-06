@@ -65,11 +65,6 @@ const useStyles = makeStyles(theme => ({
   },
   children: {
     marginTop: '24px',
-    width: '60%',
-    [theme.breakpoints.down('sm')]:{
-      width: '100%'
-    }
-    // marginBottom: '24px'
   }
 
 }));

@@ -1485,7 +1485,7 @@ var ThemeWrapper = function ThemeWrapper(_ref) {
 };
 
 var useStyles = makeStyles(function (theme) {
-  var _root, _button, _arrowSize, _children;
+  var _root, _button, _arrowSize;
 
   return {
     root: (_root = {
@@ -1532,12 +1532,9 @@ var useStyles = makeStyles(function (theme) {
         gap: '4px'
       }
     },
-    children: (_children = {
-      marginTop: '24px',
-      width: '60%'
-    }, _children[theme.breakpoints.down('sm')] = {
-      width: '100%'
-    }, _children)
+    children: {
+      marginTop: '24px'
+    }
   };
 });
 var TypographyTeaser = function TypographyTeaser(_ref) {
@@ -1738,15 +1735,12 @@ ColoredLineCard.defaultProps = {
 };
 
 var useStyles$2 = makeStyles(function (theme) {
-  var _root, _button, _arrowSize, _children;
+  var _button, _arrowSize, _children;
 
   return {
-    root: (_root = {
-      borderRadius: '0px',
-      padding: '16px'
-    }, _root[theme.breakpoints.up('md')] = {
-      padding: '24px'
-    }, _root.width = '50%', _root),
+    root: {
+      borderRadius: '0px'
+    },
     bullet: {
       display: 'inline-block',
       margin: '0 2px',
