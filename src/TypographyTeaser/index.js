@@ -11,7 +11,7 @@ import { ThemeWrapper } from '../theme/ThemeWrapper';
 const useStyles = makeStyles(theme => ({
   root: {
     borderRadius: '0px',
-    padding: '16px',
+    padding: '24px',
     [theme.breakpoints.up('md')]: {
       padding: '24px'
     }
@@ -97,7 +97,7 @@ export const TypographyTeaser = ({ text, title, url, textColor, backgroundColor,
             {title}
           </Typography>
           {content && <div className={classes.children}>
-          {content}
+            {content}
           </div>}
           <div
             className={classes.button}
@@ -107,7 +107,10 @@ export const TypographyTeaser = ({ text, title, url, textColor, backgroundColor,
                 color: backgroundColor ? colors.blue : colors[textColor], padding: !backgroundColor && '0px',
                 backgroundColor: !backgroundColor ? '' : '#ffffff', borderRadius: '20px'
               }}>
-              <div className={buttonVariant === 'text' && !backgroundColor && classes.hoverBtn} style={{ display: 'inline-flex' }}>{buttonText} <ArrowForwardIcon className={classes.arrowSize} /></div>
+              <div className={buttonVariant === 'text' && !backgroundColor && classes.hoverBtn}
+                style={{ display: 'inline-flex', gap: '8px' }}>
+                {buttonText}
+                <ArrowForwardIcon className={classes.arrowSize} /></div>
 
             </Button>
           </div>

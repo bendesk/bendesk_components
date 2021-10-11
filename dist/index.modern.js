@@ -1490,7 +1490,7 @@ var useStyles = makeStyles(function (theme) {
   return {
     root: (_root = {
       borderRadius: '0px',
-      padding: '16px'
+      padding: '24px'
     }, _root[theme.breakpoints.up('md')] = {
       padding: '24px'
     }, _root),
@@ -1579,9 +1579,10 @@ var TypographyTeaser = function TypographyTeaser(_ref) {
   }, /*#__PURE__*/React.createElement("div", {
     className: buttonVariant === 'text' && !backgroundColor && classes.hoverBtn,
     style: {
-      display: 'inline-flex'
+      display: 'inline-flex',
+      gap: '8px'
     }
-  }, buttonText, " ", /*#__PURE__*/React.createElement(ArrowForwardIcon, {
+  }, buttonText, /*#__PURE__*/React.createElement(ArrowForwardIcon, {
     className: classes.arrowSize
   })))))));
 };
@@ -1693,7 +1694,7 @@ var ColoredLineCard = function ColoredLineCard(_ref) {
   }, title), description && /*#__PURE__*/React.createElement(Typography, {
     color: "textSecondary",
     style: {
-      marginTop: '8px'
+      marginTop: '24px'
     }
   }, description), type === 'withButton' && /*#__PURE__*/React.createElement("div", {
     className: classes.button,

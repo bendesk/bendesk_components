@@ -91,7 +91,7 @@ export const ColoredLineCard = ({ type, description, title, url, color, buttonTe
           </Typography>
           {description && <Typography
             color="textSecondary"
-            style={{ marginTop: '8px'}}
+            style={{ marginTop: '24px' }}
           >
             {description}
           </Typography>}
