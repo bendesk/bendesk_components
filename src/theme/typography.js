@@ -1,6 +1,6 @@
-import { createMuiTheme } from '@material-ui/core';
-import palette from './palette';
-const theme = createMuiTheme();
+import { createMuiTheme } from '@material-ui/core'
+import palette from './palette'
+const theme = createMuiTheme()
 export default {
   fontFamily: ['Inter'].join(','),
   h1: {
@@ -107,7 +107,7 @@ export default {
     letterSpacing: '0.15px',
     lineHeight: '24px'
   },
-  //body1-mono alternate
+  // body1-mono alternate
   h6: {
     // color: palette.text.primary,
     fontFamily: 'Inter, monospace',
@@ -139,13 +139,12 @@ export default {
     letterSpacing: '0.4px',
     lineHeight: '20px'
   },
-  //body2-mono alternate
+  // body2-mono alternate
   overline: {
     fontFamily: 'Inter, monospace',
     fontWeight: 400,
     fontSize: '14px',
     letterSpacing: '0.3px',
     lineHeight: '21px'
-    // textTransform: 'uppercase'
   }
-};
+}

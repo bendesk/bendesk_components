@@ -1,14 +1,13 @@
-import Button from '@material-ui/core/Button';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button'
+import Card from '@material-ui/core/Card'
+import CardContent from '@material-ui/core/CardContent'
+import Typography from '@material-ui/core/Typography'
 import React from 'react'
-import { makeStyles } from '@material-ui/core/styles';
-import PropTypes from 'prop-types';
-import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
-import colors from '../Shared/colors';
-import { ThemeWrapper } from '../theme/ThemeWrapper';
-const useStyles = makeStyles(theme => ({
+import { makeStyles } from '@material-ui/core/styles'
+import PropTypes from 'prop-types'
+import colors from '../Shared/colors'
+import { ThemeWrapper } from '../theme/ThemeWrapper'
+const useStyles = makeStyles((theme) => ({
   root: {
     minWidth: '390px',
     maxWidth: '390px',
@@ -31,7 +30,7 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.only('lg')]: {
       maxWidth: '280px',
       minWidth: '280px'
-    },
+    }
   },
   bullet: {
     display: 'inline-block',
@@ -56,7 +55,6 @@ const useStyles = makeStyles(theme => ({
     height: '100%',
     flexDirection: 'column',
     justifyContent: 'space-between'
-    // height: '130px'
   },
   arrowSize: {
     [theme.breakpoints.down('sm')]: {
@@ -65,22 +63,37 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export const ColoredLineCard = ({ type, description, title, url, color, buttonText, buttonVariant, style, className }) => {
-  const classes = useStyles();
+export const ColoredLineCard = ({
+  type,
+  description,
+  title,
+  url,
+  color,
+  buttonText,
+  buttonVariant,
+  style,
+  textColor,
+  className
+}) => {
+  const classes = useStyles()
   return (
-    <ThemeWrapper >
+    <ThemeWrapper>
       <Card
         className={[classes.root, className].join(' ')}
         raised
         style={{
           borderTop: `4px solid ${colors[color]}`,
-          boxShadow: '0px 5px 10px -10px rgba(0, 0, 0, 0.03), 0px 9px 30px 2px rgba(0, 0, 0, 0.1)',
+          boxShadow:
+            '0px 5px 10px -10px rgba(0, 0, 0, 0.03), 0px 9px 30px 2px rgba(0, 0, 0, 0.1)',
           ...style
         }}
       >
-        <CardContent className={classes.CardContent} style={{ alignItems: description ? '' : 'center' }}>
+        <CardContent
+          className={classes.CardContent}
+          style={{ alignItems: description ? '' : 'center' }}
+        >
           <Typography
-            variant="h3"
+            variant='h3'
             style={{
               color: colors[color] || 'white',
               textAlign: description ? 'left' : 'center',
@@ -89,18 +102,26 @@ export const ColoredLineCard = ({ type, description, title, url, color, buttonTe
           >
             {title}
           </Typography>
-          {description && <Typography
-            color="textSecondary"
-            style={{ marginTop: '24px' }}
-          >
-            {description}
-          </Typography>}
-          {type === 'withButton' &&
-            <div className={classes.button} style={{ color: !color ? colors[textColor] : 'white' }}>
-              <Button size="medium" disableElevation variant={buttonVariant} color="primary">
+          {description && (
+            <Typography color='textSecondary' style={{ marginTop: '24px' }}>
+              {description}
+            </Typography>
+          )}
+          {type === 'withButton' && (
+            <div
+              className={classes.button}
+              style={{ color: !color ? colors[textColor] : 'white' }}
+            >
+              <Button
+                size='medium'
+                disableElevation
+                variant={buttonVariant}
+                color='primary'
+              >
                 {buttonText}
               </Button>
-            </div>}
+            </div>
+          )}
         </CardContent>
       </Card>
     </ThemeWrapper>
@@ -118,7 +139,7 @@ ColoredLineCard.propTypes = {
   buttonLink: PropTypes.string.isRequired,
   buttonVariant: PropTypes.oneOf(['contained', 'text']),
   onClick: PropTypes.func
-};
+}
 
 ColoredLineCard.defaultProps = {
   title: 'This is a typography teaser',
@@ -130,5 +151,5 @@ ColoredLineCard.defaultProps = {
   buttonText: 'Button',
   buttonLink: PropTypes.string.isRequired,
   buttonVariant: 'contained',
-  onClick: f => f
-};
+  onClick: (f) => f
+}

@@ -1670,6 +1670,7 @@ var ColoredLineCard = function ColoredLineCard(_ref) {
       buttonText = _ref.buttonText,
       buttonVariant = _ref.buttonVariant,
       style = _ref.style,
+      textColor = _ref.textColor,
       className = _ref.className;
   var classes = useStyles$1();
   return /*#__PURE__*/React.createElement(ThemeWrapper, null, /*#__PURE__*/React.createElement(Card, {

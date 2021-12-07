@@ -3,8 +3,8 @@ import React from 'react'
 import { ColoredLineCard } from '../ColoredLineCard'
 
 export default {
-  title: 'Bendesk/ColoredLineCard',
-  component: ColoredLineCard,
+  title: 'Organisms/Cards/ColoredLineCard',
+  component: ColoredLineCard
 }
 
 const Template = (args) => <ColoredLineCard {...args} />
