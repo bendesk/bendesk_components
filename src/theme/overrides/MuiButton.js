@@ -1,9 +1,8 @@
-import { colorSet } from "../palette";
+import { colorSet } from '../palette'
 
 export default {
   contained: {
     // backgroundColor: '#FFFFFF',
-
   },
   root: {
     textTransform: 'initial',
@@ -14,11 +13,11 @@ export default {
     fontWeight: 400,
     letterSpacing: '0px',
     lineHeight: '24px',
-    '&:hover':{
+    '&:hover': {
       backgroundColor: 'transparent'
     }
   },
-  textSizeSmall : {
+  textSizeSmall: {
     fontFamily: 'Inter',
     // color: palette.text.primary,
     fontSize: '14px',
@@ -26,7 +25,7 @@ export default {
     letterSpacing: '0.15px',
     lineHeight: '20px'
   },
-  sizeSmall : {
+  sizeSmall: {
     fontFamily: 'Inter',
     // color: palette.text.primary,
     fontSize: '13px',
@@ -34,7 +33,7 @@ export default {
     letterSpacing: '0px',
     lineHeight: '22px'
   },
-  sizeMedium : {
+  sizeMedium: {
     fontFamily: 'Inter',
     // color: palette.text.primary,
     fontSize: '16px',
@@ -42,7 +41,7 @@ export default {
     letterSpacing: '0px',
     lineHeight: '24px'
   },
-  sizeLarge : {
+  sizeLarge: {
     fontFamily: 'Founders Grotesk',
     // color: palette.text.primary,
     fontSize: '20px',
@@ -56,4 +55,4 @@ export default {
       color: colorSet['blueDark']
     }
   }
-};
+}

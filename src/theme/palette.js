@@ -1,7 +1,7 @@
-import { colors } from '@material-ui/core';
+import { colors } from '@material-ui/core'
 
-const white = '#FFFFFF';
-const black = '#28374C';
+const white = '#FFFFFF'
+const black = '#28374C'
 export const colorSet = {
   blue: '#126AEF',
   blueDark: '#0E53BA',
@@ -69,11 +69,9 @@ export default {
     default: '#ffffff',
     paper: white
   },
- 
 
   icon: colors.blueGrey[600],
   divider: colors.grey[200],
   orange: colors.orange[900],
   green: colors.green[900]
-};
-
+}

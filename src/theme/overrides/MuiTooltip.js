@@ -1,5 +1,5 @@
 export default {
-    tooltip: {
+  tooltip: {
     fontFamily: 'Inter',
     // color: palette.text.primary,
     fontSize: '10px',
@@ -7,4 +7,4 @@ export default {
     letterSpacing: '0px',
     lineHeight: '14px'
   }
-};
+}

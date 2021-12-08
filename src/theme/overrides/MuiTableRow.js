@@ -1,4 +1,4 @@
-import { colorSet } from '../palette';
+import { colorSet } from '../palette'
 
 export default {
   root: {
@@ -11,4 +11,4 @@ export default {
       }
     }
   }
-};
+}

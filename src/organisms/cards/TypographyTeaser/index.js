@@ -1,14 +1,14 @@
-import Button from '@material-ui/core/Button';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button'
+import Card from '@material-ui/core/Card'
+import CardContent from '@material-ui/core/CardContent'
+import Typography from '@material-ui/core/Typography'
 import React from 'react'
-import { makeStyles } from '@material-ui/core/styles';
-import PropTypes from 'prop-types';
-import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
-import colors from '../../../shared/colors';
-import { ThemeWrapper } from '../../../theme/ThemeWrapper';
-const useStyles = makeStyles(theme => ({
+import { makeStyles } from '@material-ui/core/styles'
+import PropTypes from 'prop-types'
+import ArrowForwardIcon from '@material-ui/icons/ArrowForward'
+import colors from '../../../shared/colors'
+import { ThemeWrapper } from '../../../theme/ThemeWrapper'
+const useStyles = makeStyles((theme) => ({
   root: {
     borderRadius: '0px',
     padding: '24px',
@@ -23,7 +23,7 @@ const useStyles = makeStyles(theme => ({
   },
   title: {
     // fontSize: 14
-    marginLeft: '2px',
+    marginLeft: '2px'
   },
   button: {
     marginLeft: '2px',
@@ -35,10 +35,9 @@ const useStyles = makeStyles(theme => ({
     },
     '&:hover': {
       '&:$arrowSize': {
-
         marginLeft: '12px'
       }
-    },
+    }
   },
   pos: {
     marginBottom: 12
@@ -47,14 +46,13 @@ const useStyles = makeStyles(theme => ({
     padding: '0px!important',
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'space-between',
+    justifyContent: 'space-between'
     // height: '130px'
   },
   arrowSize: {
-
     [theme.breakpoints.down('sm')]: {
       fontSize: '22px'
-    },
+    }
   },
   hoverBtn: {
     display: 'inline-flex',
@@ -64,17 +62,27 @@ const useStyles = makeStyles(theme => ({
     }
   },
   children: {
-    marginTop: '24px',
+    marginTop: '24px'
   }
+}))
 
-}));
-
-
-export const TypographyTeaser = ({ text, title, url, textColor, backgroundColor, buttonText, buttonVariant, buttonBackground, buttonTextColor, style, className, content }) => {
-  const classes = useStyles();
+export const TypographyTeaser = ({
+  text,
+  title,
+  url,
+  textColor,
+  backgroundColor,
+  buttonText,
+  buttonVariant,
+  buttonBackground,
+  buttonTextColor,
+  style,
+  className,
+  content
+}) => {
+  const classes = useStyles()
   return (
-    <ThemeWrapper >
-
+    <ThemeWrapper>
       <Card
         className={[classes.root, className].join(' ')}
         raised
@@ -89,29 +97,37 @@ export const TypographyTeaser = ({ text, title, url, textColor, backgroundColor,
         <CardContent className={classes.CardContent}>
           <Typography
             className={classes.title}
-            variant="h3"
+            variant='h3'
             style={{
               color: backgroundColor ? 'white' : colors[textColor]
             }}
           >
             {title}
           </Typography>
-          {content && <div className={classes.children}>
-            {content}
-          </div>}
-          <div
-            className={classes.button}
-          >
-            <Button size="medium" disableElevation variant={buttonVariant}
+          {content && <div className={classes.children}>{content}</div>}
+          <div className={classes.button}>
+            <Button
+              size='medium'
+              disableElevation
+              variant={buttonVariant}
               style={{
-                color: backgroundColor ? colors.blue : colors[textColor], padding: !backgroundColor && '0px',
-                backgroundColor: !backgroundColor ? '' : '#ffffff', borderRadius: '20px'
-              }}>
-              <div className={buttonVariant === 'text' && !backgroundColor && classes.hoverBtn}
-                style={{ display: 'inline-flex', gap: '8px' }}>
+                color: backgroundColor ? colors.blue : colors[textColor],
+                padding: !backgroundColor && '0px',
+                backgroundColor: !backgroundColor ? '' : '#ffffff',
+                borderRadius: '20px'
+              }}
+            >
+              <div
+                className={
+                  buttonVariant === 'text' &&
+                  !backgroundColor &&
+                  classes.hoverBtn
+                }
+                style={{ display: 'inline-flex', gap: '8px' }}
+              >
                 {buttonText}
-                <ArrowForwardIcon className={classes.arrowSize} /></div>
-
+                <ArrowForwardIcon className={classes.arrowSize} />
+              </div>
             </Button>
           </div>
         </CardContent>
@@ -131,8 +147,8 @@ TypographyTeaser.propTypes = {
   buttonText: PropTypes.string.isRequired,
   buttonLink: PropTypes.string.isRequired,
   buttonVariant: PropTypes.oneOf(['contained', 'text']),
-  onClick: PropTypes.func,
-};
+  onClick: PropTypes.func
+}
 
 TypographyTeaser.defaultProps = {
   title: 'This is a typography teaser',
@@ -144,5 +160,5 @@ TypographyTeaser.defaultProps = {
   // buttonBackground: 'white',
   buttonLink: PropTypes.string.isRequired,
   buttonVariant: 'contained',
-  onClick: f => f
-};
+  onClick: (f) => f
+}
