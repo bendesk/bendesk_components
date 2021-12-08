@@ -1,7 +1,7 @@
 import MuiTypography from '@material-ui/core/Typography'
 import React from 'react'
 import PropTypes from 'prop-types'
-import colors from '../../Shared/colors'
+import colors from '../../shared/colors'
 
 export const Typography = ({ variant, children, color, ...props }) => {
   return (

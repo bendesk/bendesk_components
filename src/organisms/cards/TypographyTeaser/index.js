@@ -6,8 +6,8 @@ import React from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
-import colors from '../Shared/colors';
-import { ThemeWrapper } from '../theme/ThemeWrapper';
+import colors from '../../../shared/colors';
+import { ThemeWrapper } from '../../../theme/ThemeWrapper';
 const useStyles = makeStyles(theme => ({
   root: {
     borderRadius: '0px',

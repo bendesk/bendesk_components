@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { ColoredLineCard } from '../ColoredLineCard'
+import { ColoredLineCard } from '.'
 
 export default {
   title: 'Organisms/Cards/ColoredLineCard',

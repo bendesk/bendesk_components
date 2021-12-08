@@ -5,8 +5,8 @@ import Typography from '@material-ui/core/Typography'
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import PropTypes from 'prop-types'
-import colors from '../Shared/colors'
-import { ThemeWrapper } from '../theme/ThemeWrapper'
+import colors from '../../../shared/colors'
+import { ThemeWrapper } from '../../../theme/ThemeWrapper'
 const useStyles = makeStyles((theme) => ({
   root: {
     minWidth: '390px',

@@ -2,7 +2,7 @@ import Typography from '@material-ui/core/Typography';
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
-import { ThemeWrapper } from '../theme/ThemeWrapper';
+import { ThemeWrapper } from '../../../theme/ThemeWrapper';
 import SpaOutlinedIcon from '@material-ui/icons/SpaOutlined';
 const useStyles = makeStyles(theme => ({
   root: {
