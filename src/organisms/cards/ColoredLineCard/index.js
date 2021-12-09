@@ -6,7 +6,6 @@ import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import PropTypes from 'prop-types'
 import colors from '../../../shared/colors'
-import { ThemeWrapper } from '../../../theme/ThemeWrapper'
 const useStyles = makeStyles((theme) => ({
   root: {
     minWidth: '390px',
@@ -77,54 +76,52 @@ export const ColoredLineCard = ({
 }) => {
   const classes = useStyles()
   return (
-    <ThemeWrapper>
-      <Card
-        className={[classes.root, className].join(' ')}
-        raised
-        style={{
-          borderTop: `4px solid ${colors[color]}`,
-          boxShadow:
-            '0px 5px 10px -10px rgba(0, 0, 0, 0.03), 0px 9px 30px 2px rgba(0, 0, 0, 0.1)',
-          ...style
-        }}
+    <Card
+      className={[classes.root, className].join(' ')}
+      raised
+      style={{
+        borderTop: `4px solid ${colors[color]}`,
+        boxShadow:
+          '0px 5px 10px -10px rgba(0, 0, 0, 0.03), 0px 9px 30px 2px rgba(0, 0, 0, 0.1)',
+        ...style
+      }}
+    >
+      <CardContent
+        className={classes.CardContent}
+        style={{ alignItems: description ? '' : 'center' }}
       >
-        <CardContent
-          className={classes.CardContent}
-          style={{ alignItems: description ? '' : 'center' }}
+        <Typography
+          variant='h3'
+          style={{
+            color: colors[color] || 'white',
+            textAlign: description ? 'left' : 'center',
+            marginTop: '32px'
+          }}
         >
-          <Typography
-            variant='h3'
-            style={{
-              color: colors[color] || 'white',
-              textAlign: description ? 'left' : 'center',
-              marginTop: '32px'
-            }}
-          >
-            {title}
+          {title}
+        </Typography>
+        {description && (
+          <Typography color='textSecondary' style={{ marginTop: '24px' }}>
+            {description}
           </Typography>
-          {description && (
-            <Typography color='textSecondary' style={{ marginTop: '24px' }}>
-              {description}
-            </Typography>
-          )}
-          {type === 'withButton' && (
-            <div
-              className={classes.button}
-              style={{ color: !color ? colors[textColor] : 'white' }}
+        )}
+        {type === 'withButton' && (
+          <div
+            className={classes.button}
+            style={{ color: !color ? colors[textColor] : 'white' }}
+          >
+            <Button
+              size='medium'
+              disableElevation
+              variant={buttonVariant}
+              color='primary'
             >
-              <Button
-                size='medium'
-                disableElevation
-                variant={buttonVariant}
-                color='primary'
-              >
-                {buttonText}
-              </Button>
-            </div>
-          )}
-        </CardContent>
-      </Card>
-    </ThemeWrapper>
+              {buttonText}
+            </Button>
+          </div>
+        )}
+      </CardContent>
+    </Card>
   )
 }
 

@@ -7,7 +7,6 @@ import { makeStyles } from '@material-ui/core/styles'
 import PropTypes from 'prop-types'
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward'
 import colors from '../../../shared/colors'
-import { ThemeWrapper } from '../../../theme/ThemeWrapper'
 const useStyles = makeStyles((theme) => ({
   root: {
     borderRadius: '0px',
@@ -82,57 +81,53 @@ export const TypographyTeaser = ({
 }) => {
   const classes = useStyles()
   return (
-    <ThemeWrapper>
-      <Card
-        className={[classes.root, className].join(' ')}
-        raised
-        style={{
-          background: backgroundColor || 'white',
-          boxShadow: backgroundColor
-            ? 'none'
-            : '0px 5px 10px -10px rgba(0, 0, 0, 0.03), 0px 9px 30px 2px rgba(0, 0, 0, 0.1)',
-          ...style
-        }}
-      >
-        <CardContent className={classes.CardContent}>
-          <Typography
-            className={classes.title}
-            variant='h3'
+    <Card
+      className={[classes.root, className].join(' ')}
+      raised
+      style={{
+        background: backgroundColor || 'white',
+        boxShadow: backgroundColor
+          ? 'none'
+          : '0px 5px 10px -10px rgba(0, 0, 0, 0.03), 0px 9px 30px 2px rgba(0, 0, 0, 0.1)',
+        ...style
+      }}
+    >
+      <CardContent className={classes.CardContent}>
+        <Typography
+          className={classes.title}
+          variant='h3'
+          style={{
+            color: backgroundColor ? 'white' : colors[textColor]
+          }}
+        >
+          {title}
+        </Typography>
+        {content && <div className={classes.children}>{content}</div>}
+        <div className={classes.button}>
+          <Button
+            size='medium'
+            disableElevation
+            variant={buttonVariant}
             style={{
-              color: backgroundColor ? 'white' : colors[textColor]
+              color: backgroundColor ? colors.blue : colors[textColor],
+              padding: !backgroundColor && '0px',
+              backgroundColor: !backgroundColor ? '' : '#ffffff',
+              borderRadius: '20px'
             }}
           >
-            {title}
-          </Typography>
-          {content && <div className={classes.children}>{content}</div>}
-          <div className={classes.button}>
-            <Button
-              size='medium'
-              disableElevation
-              variant={buttonVariant}
-              style={{
-                color: backgroundColor ? colors.blue : colors[textColor],
-                padding: !backgroundColor && '0px',
-                backgroundColor: !backgroundColor ? '' : '#ffffff',
-                borderRadius: '20px'
-              }}
+            <div
+              className={
+                buttonVariant === 'text' && !backgroundColor && classes.hoverBtn
+              }
+              style={{ display: 'inline-flex', gap: '8px' }}
             >
-              <div
-                className={
-                  buttonVariant === 'text' &&
-                  !backgroundColor &&
-                  classes.hoverBtn
-                }
-                style={{ display: 'inline-flex', gap: '8px' }}
-              >
-                {buttonText}
-                <ArrowForwardIcon className={classes.arrowSize} />
-              </div>
-            </Button>
-          </div>
-        </CardContent>
-      </Card>
-    </ThemeWrapper>
+              {buttonText}
+              <ArrowForwardIcon className={classes.arrowSize} />
+            </div>
+          </Button>
+        </div>
+      </CardContent>
+    </Card>
   )
 }
 

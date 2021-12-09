@@ -2,7 +2,6 @@ import Typography from '@material-ui/core/Typography'
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import PropTypes from 'prop-types'
-import { ThemeWrapper } from '../../../theme/ThemeWrapper'
 import SpaOutlinedIcon from '@material-ui/icons/SpaOutlined'
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -80,24 +79,22 @@ export const InfoWithIcon = ({
   const classes = useStyles()
   const Icon = <SpaOutlinedIcon style={{ fontSize: '4.5rem' }} />
   return (
-    <ThemeWrapper>
-      <div
-        className={[classes.root, className].join(' ')}
-        style={{
-          ...style
-        }}
-      >
-        <div className={classes.CardContent}>
-          <div style={{ marginBottom: '24px' }}>{headerIcon}</div>
-          <Typography variant='h3' style={{ marginBottom: '24px' }}>
-            {title}
-          </Typography>
-          <p className={classes.content} variant='h3'>
-            {description}
-          </p>
-        </div>
+    <div
+      className={[classes.root, className].join(' ')}
+      style={{
+        ...style
+      }}
+    >
+      <div className={classes.CardContent}>
+        <div style={{ marginBottom: '24px' }}>{headerIcon}</div>
+        <Typography variant='h3' style={{ marginBottom: '24px' }}>
+          {title}
+        </Typography>
+        <p className={classes.content} variant='h3'>
+          {description}
+        </p>
       </div>
-    </ThemeWrapper>
+    </div>
   )
 }
 

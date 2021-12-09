@@ -1,7 +1,6 @@
 import React from 'react'
 
 import { Typography } from '../Typography'
-import { ThemeWrapper } from '../../theme/ThemeWrapper'
 
 export default {
   title: 'Atoms/Typography',
@@ -31,13 +30,13 @@ const variantName = (name) => {
     : ''
 }
 const Template = (args) => (
-  <ThemeWrapper>
+  <>
     {headingVariants.map((variant) => (
       <Typography key={variant} variant={variant} {...args}>
         Typography with {variantName(variant)} variant
       </Typography>
     ))}
-  </ThemeWrapper>
+  </>
 )
 
 export const All = Template.bind({})
