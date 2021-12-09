@@ -1,6 +1,6 @@
 // Atoms
-import { Typography } from './Atoms/Typography'
-import Colors from './Atoms/Colors'
+import { Typography } from './atoms/Typography'
+import Colors from './atoms/Colors'
 // Molecules
 import { Chip } from './molecules/Chip'
 // Organisms
