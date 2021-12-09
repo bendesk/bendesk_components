@@ -9,12 +9,12 @@ import { ColoredLineCard } from './organisms/cards/ColoredLineCard'
 import { InfoWithIcon } from './organisms/infoContainer/InfoWithIcon'
 
 export {
-  //Atoms
+  // Atoms
   Typography,
   Colors,
-  //Molecules
-  Chips,
-  //Organisms
+  // Molecules
+  Chip,
+  // Organisms
   TypographyTeaser,
   ColoredLineCard,
   InfoWithIcon
