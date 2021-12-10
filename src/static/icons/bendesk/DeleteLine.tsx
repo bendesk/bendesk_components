@@ -1,7 +1,7 @@
 import React from 'react'
 import { SvgIcon } from '@material-ui/core'
 
-export default ({ color, ...props }) => (
+export default ({ color, ...props }: { color: string }) => (
   <SvgIcon
     width='24'
     height='24'
