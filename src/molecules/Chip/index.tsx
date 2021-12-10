@@ -22,7 +22,7 @@ export const Chip: FC<TArgs> = ({
       deleteIcon={
         deleteIcon || (
           <DeleteLine
-            color={props.variant === 'outlined' ? colors['blue'] : "#fff"}
+            color={props.variant === 'outlined' ? colors['blue'] : '#fff'}
           />
         )
       }
