@@ -1,6 +1,6 @@
 import React from 'react'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-import { Chip, TArgs } from '.'
+import { Chip } from '.'
 import { Avatar, Grid } from '@material-ui/core'
 import colors from '../../shared/colors'
 import generateDisabledArgsConfig from '../../helpers/generateDisabledArgsConfig'

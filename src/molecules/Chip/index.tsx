@@ -4,12 +4,12 @@ import React, { FC } from 'react'
 import DeleteLine from '../../static/icons/bendesk/DeleteLine'
 import colors from '../../shared/colors'
 
-export type TArgs = ChipProps & {
+export type TChipArgs = ChipProps & {
   backgroundColor?: string
   textColor?: string
 }
 
-export const Chip: FC<TArgs> = ({
+export const Chip: FC<TChipArgs> = ({
   backgroundColor,
   textColor,
   deleteIcon,
