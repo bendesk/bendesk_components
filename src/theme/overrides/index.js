@@ -8,6 +8,8 @@ import MuiTooltip from './MuiTooltip'
 import MuiTypography from './MuiTypography'
 import MuiDialog from './MuiDialog'
 import MuiTableRow from './MuiTableRow'
+import MuiFormHelperText from './MuiFormHelperText'
+import MuiOutlinedInput from './MuiOutlinedInput'
 
 export default {
   MuiButton,
@@ -21,5 +23,7 @@ export default {
   MuiTableRow,
   // MuiTableCell,
   // MuiTableHead,
-  MuiTypography
+  MuiTypography,
+  MuiFormHelperText,
+  MuiOutlinedInput,
 }
