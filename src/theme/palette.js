@@ -57,7 +57,7 @@ export default {
   error: {
     contrastText: white,
     dark: colors.red[900],
-    main: colors.red[600],
+    main: '#FF6848',
     light: colors.red[400]
   },
   text: {
