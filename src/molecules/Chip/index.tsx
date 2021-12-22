@@ -13,12 +13,13 @@ export const Chip: FC<TChipArgs> = ({
   backgroundColor,
   textColor,
   deleteIcon,
+  style,
   ...props
 }) => {
   return (
     <MuiChip
       {...props}
-      style={{ backgroundColor, color: textColor }}
+      style={{ ...style, backgroundColor, color: textColor }}
       deleteIcon={
         deleteIcon || (
           <DeleteLine
