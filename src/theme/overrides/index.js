@@ -10,6 +10,7 @@ import MuiDialog from './MuiDialog'
 import MuiTableRow from './MuiTableRow'
 import MuiFormHelperText from './MuiFormHelperText'
 import MuiOutlinedInput from './MuiOutlinedInput'
+import MuiCheckbox from './MuiCheckbox'
 
 export default {
   MuiButton,
@@ -26,4 +27,5 @@ export default {
   MuiTypography,
   MuiFormHelperText,
   MuiOutlinedInput,
+  MuiCheckbox
 }
