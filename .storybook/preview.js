@@ -1,4 +1,5 @@
 import { ThemeWrapper } from '../src/theme/ThemeWrapper'
+import '@storybook/addon-console';
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
