@@ -1,6 +1,5 @@
 export default {
   root: {
-    height: '53px',
     '& input:valid ~ fieldset': {
       borderColor: '#28374C',
       borderWidth: 1
@@ -26,5 +25,6 @@ export default {
       borderColor: '#FF6848',
       borderWidth: 1
     }
-  }
+  },
+  input: { padding: '17px 14px' }
 }
