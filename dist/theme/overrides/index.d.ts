@@ -1,0 +1,29 @@
+declare namespace _default {
+    export { MuiButton };
+    export { MuiIconButton };
+    export { MuiPaper };
+    export { MuiTooltip };
+    export { MuiGrid };
+    export { MuiDivider };
+    export { MuiDrawer };
+    export { MuiDialog };
+    export { MuiTableRow };
+    export { MuiTypography };
+    export { MuiFormHelperText };
+    export { MuiOutlinedInput };
+    export { MuiCheckbox };
+}
+export default _default;
+import MuiButton from "./MuiButton";
+import MuiIconButton from "./MuiIconButton";
+import MuiPaper from "./MuiPaper";
+import MuiTooltip from "./MuiTooltip";
+import MuiGrid from "./MuiGrid";
+import MuiDivider from "./MuiDivider";
+import MuiDrawer from "./MuiDrawer";
+import MuiDialog from "./MuiDialog";
+import MuiTableRow from "./MuiTableRow";
+import MuiTypography from "./MuiTypography";
+import MuiFormHelperText from "./MuiFormHelperText";
+import MuiOutlinedInput from "./MuiOutlinedInput";
+import MuiCheckbox from "./MuiCheckbox";
