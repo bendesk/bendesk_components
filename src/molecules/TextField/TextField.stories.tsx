@@ -1,14 +1,14 @@
 import React from 'react'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { TextField } from '.'
-import { Avatar, Grid, IconButton } from '@material-ui/core'
+import { IconButton } from '@material-ui/core'
 import generateDisabledArgsConfig from '../../helpers/generateDisabledArgsConfig'
 import { VisibilityOutlined } from '@material-ui/icons'
 
 const disabledArgs: string[] = ['suffix', 'hiddenLabel', 'focused']
 
 export default {
-  title: 'Molucules/TextField',
+  title: 'Molucules/Inputs/Textfield',
   component: TextField,
   args: {
     label: 'label',
