@@ -27,7 +27,7 @@ export const Snackbar: FC<TSnackbarArgs> = ({
       {...props}
     >
       <Alert
-        onClose={onClose}
+        onClose={onClose as AlertProps['onClose']}
         severity={type}
         icon={icon}
         classes={{

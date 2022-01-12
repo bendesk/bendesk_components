@@ -1,7 +1,7 @@
-import React, { FC, useState } from 'react'
+import React, { FC } from 'react'
 import MuiTextField from '@material-ui/core/TextField'
 import { useStyles } from './styles'
-import { InputAdornment, InputProps, TextFieldProps } from '@material-ui/core'
+import { InputAdornment, TextFieldProps } from '@material-ui/core'
 import Cleave from 'cleave.js/react'
 
 export type TTextFieldArgs = TextFieldProps & {

@@ -1,5 +1,4 @@
 import {
-  AccordionProps,
   Accordion as MuiAccordion,
   AccordionSummary,
   AccordionDetails,

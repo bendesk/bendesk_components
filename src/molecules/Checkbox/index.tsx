@@ -1,14 +1,10 @@
-import React, { FC, useEffect, useState } from 'react'
-import MuiSelect from '@material-ui/core/Select'
+import React, { FC } from 'react'
 import { useStyles } from './styles'
 import {
   FormControl,
   FormControlProps,
   FormHelperText,
-  InputLabel,
-  MenuItem,
   Checkbox as MuiCheckbox,
-  CheckboxProps,
   FormLabel,
   FormGroup,
   FormControlLabel
