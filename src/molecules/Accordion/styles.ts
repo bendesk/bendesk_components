@@ -42,4 +42,7 @@ export const StyledWrapper = styled.div`
       opacity: 0;
     }
   }
+  .MuiIconButton-edgeEnd {
+    margin-right: 0;
+  }
 `
