@@ -1,4 +1,3 @@
-/// <reference types="react" />
 declare const _default: ({ color, ...props }: {
     color: string;
 }) => JSX.Element;
