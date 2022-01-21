@@ -3,6 +3,7 @@ export declare type TAccordionContent = {
     title: string;
     subtitle?: string;
     content: React.FC | string;
+    defaultExpanded?: boolean;
 };
 export declare type TAccordionArgs = {
     content: TAccordionContent[] | TAccordionContent;

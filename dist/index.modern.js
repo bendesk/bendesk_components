@@ -1,6 +1,6 @@
 import Typography$1 from '@material-ui/core/Typography';
 import React from 'react';
-import { SvgIcon, colors as colors$1, Accordion as Accordion$1, AccordionSummary, Grid, AccordionDetails, Avatar as Avatar$1, FormControl, FormLabel, FormGroup, FormControlLabel, Checkbox, FormHelperText, LinearProgress as LinearProgress$1, CircularProgress as CircularProgress$1, RadioGroup, Radio, InputLabel, Snackbar as Snackbar$1, Switch as Switch$1, InputAdornment } from '@material-ui/core';
+import { SvgIcon, colors as colors$1, StylesProvider, Accordion as Accordion$1, AccordionSummary, Grid, AccordionDetails, Avatar as Avatar$1, FormControl, FormLabel, FormGroup, FormControlLabel, Checkbox, FormHelperText, LinearProgress as LinearProgress$1, CircularProgress as CircularProgress$1, RadioGroup, Radio, InputLabel, Snackbar as Snackbar$1, Switch as Switch$1, InputAdornment } from '@material-ui/core';
 import styled from 'styled-components';
 import { makeStyles } from '@material-ui/core/styles';
 import MuiChip from '@material-ui/core/Chip';
@@ -1329,7 +1329,7 @@ var palette = {
 };
 
 var _templateObject;
-var StyledWrapper = styled.div(_templateObject || (_templateObject = _taggedTemplateLiteralLoose(["\n  .MuiPaper-root {\n    margin: 0;\n  }\n  .MuiAccordion-root {\n    margin: 0;\n    border-bottom: 1px solid #dadada;\n    border-radius: 0;\n    :before {\n      opacity: 0;\n    }\n  }\n  .MuiGrid-container {\n    margin-bottom: 0;\n  }\n  .MuiIconButton-label {\n    height: 35px;\n    width: 35px;\n  }\n  .MuiAccordionDetails-root {\n    padding-top: 0;\n  }\n  .MuiAccordionSummary-root {\n    padding: 24px;\n    min-height: unset !important;\n  }\n  .MuiAccordionDetails-root {\n    padding: 24px;\n    padding-top: 0;\n  }\n  .MuiAccordionSummary-expandIcon {\n    padding: 0;\n  }\n  .MuiAccordionSummary-content {\n    margin: 0 !important;\n  }\n  .MuiAccordion-root.Mui-expanded {\n    margin: 0;\n    :before {\n      opacity: 0;\n    }\n  }\n"])));
+var StyledWrapper = styled.div(_templateObject || (_templateObject = _taggedTemplateLiteralLoose(["\n  .MuiPaper-root {\n    margin: 0;\n  }\n  .MuiAccordion-root {\n    margin: 0;\n    border-bottom: 1px solid #dadada;\n    border-radius: 0;\n    :before {\n      opacity: 0;\n    }\n  }\n  .MuiGrid-container {\n    margin-bottom: 0;\n  }\n  .MuiIconButton-label {\n    height: 35px;\n    width: 35px;\n  }\n  .MuiAccordionDetails-root {\n    padding-top: 0;\n  }\n  .MuiAccordionSummary-root {\n    padding: 24px;\n    min-height: unset !important;\n  }\n  .MuiAccordionDetails-root {\n    padding: 24px;\n    padding-top: 0;\n  }\n  .MuiAccordionSummary-expandIcon {\n    padding: 0;\n  }\n  .MuiAccordionSummary-content {\n    margin: 0 !important;\n  }\n  .MuiAccordion-root.Mui-expanded {\n    margin: 0;\n    :before {\n      opacity: 0;\n    }\n  }\n  .MuiIconButton-edgeEnd {\n    margin-right: 0;\n  }\n"])));
 
 var _excluded$1 = ["content"];
 var Accordion = function Accordion(_ref) {
@@ -1337,9 +1337,12 @@ var Accordion = function Accordion(_ref) {
       props = _objectWithoutPropertiesLoose(_ref, _excluded$1);
 
   var accordions = Array.isArray(content) ? content : [content];
-  return React.createElement(StyledWrapper, null, accordions.map(function (acc, index) {
+  return React.createElement(StylesProvider, {
+    injectFirst: true
+  }, React.createElement(StyledWrapper, null, accordions.map(function (acc, index) {
     return React.createElement(Accordion$1, Object.assign({
-      key: index
+      key: index,
+      defaultExpanded: acc.defaultExpanded
     }, props), React.createElement(AccordionSummary, {
       expandIcon: React.createElement(ArrowDownOutlined, {
         style: {
@@ -1369,7 +1372,7 @@ var Accordion = function Accordion(_ref) {
         marginBottom: 0
       }
     }, acc.content) : React.createElement(acc.content, null)));
-  }));
+  })));
 };
 
 var _excluded$2 = ["size"];
@@ -1801,7 +1804,7 @@ var Snackbar = function Snackbar(_ref) {
 };
 
 var _templateObject$3;
-var StyledWrapper$3 = styled.div(_templateObject$3 || (_templateObject$3 = _taggedTemplateLiteralLoose(["\n  .MuiFormControlLabel-label {\n    margin-top: ", ";\n  }\n"])), function (props) {
+var StyledWrapper$3 = styled.div(_templateObject$3 || (_templateObject$3 = _taggedTemplateLiteralLoose(["\n  .MuiFormControlLabel-label {\n    margin-top: ", ";\n  }\n  .MuiSwitch-track {\n    background-color: #6d7785;\n  }\n  .MuiSwitch-thumb {\n    background-color: #6d7785;\n    box-shadow: none;\n  }\n  .Mui-checked {\n    .MuiSwitch-track {\n      background-color: #126AEF;\n    }\n    .MuiSwitch-thumb {\n      background-color: #126AEF;\n    }\n  }\n"])), function (props) {
   return props.size === 'small' ? '0px' : '8px';
 });
 
