@@ -14,6 +14,7 @@ export type TAccordionContent = {
   title: string
   subtitle?: string
   content: React.FC | string
+  defaultExpanded?: boolean
 }
 
 export type TAccordionArgs = {
@@ -25,7 +26,11 @@ export const Accordion: FC<TAccordionArgs> = ({ content, ...props }) => {
   return (
     <StyledWrapper>
       {accordions.map((acc, index) => (
-        <MuiAccordion key={index} {...props}>
+        <MuiAccordion
+          key={index}
+          defaultExpanded={acc.defaultExpanded}
+          {...props}
+        >
           <AccordionSummary
             expandIcon={
               <ArrowDownOutlined style={{ height: '35px', width: '35px' }} />
