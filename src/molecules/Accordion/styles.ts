@@ -1,4 +1,17 @@
+import { makeStyles } from '@material-ui/core'
 import styled from 'styled-components'
+
+export const useStyles = makeStyles((theme) => ({
+  paper_root: { margin: 0 },
+  accordion_root: {
+    margin: 0,
+    borderBottom: '1px solid #dadada',
+    borderRadius: 0,
+    '&:before': {
+      opacity: 0
+    }
+  },
+}))
 
 export const StyledWrapper = styled.div`
   & .MuiPaper-root {
