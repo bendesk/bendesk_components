@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
 export const StyledWrapper = styled.div`
-  .MuiPaper-root {
+  & .MuiPaper-root {
     margin: 0;
   }
-  .MuiAccordion-root {
+  & .MuiAccordion-root {
     margin: 0;
     border-bottom: 1px solid #dadada;
     border-radius: 0;
@@ -12,37 +12,37 @@ export const StyledWrapper = styled.div`
       opacity: 0;
     }
   }
-  .MuiGrid-container {
+  & .MuiGrid-container {
     margin-bottom: 0;
   }
-  .MuiIconButton-label {
+  & .MuiIconButton-label {
     height: 35px;
     width: 35px;
   }
-  .MuiAccordionDetails-root {
+  & .MuiAccordionDetails-root {
     padding-top: 0;
   }
-  .MuiAccordionSummary-root {
+  & .MuiAccordionSummary-root {
     padding: 24px;
     min-height: unset !important;
   }
-  .MuiAccordionDetails-root {
+  & .MuiAccordionDetails-root {
     padding: 24px;
     padding-top: 0;
   }
-  .MuiAccordionSummary-expandIcon {
+  & .MuiAccordionSummary-expandIcon {
     padding: 0;
   }
-  .MuiAccordionSummary-content {
+  & .MuiAccordionSummary-content {
     margin: 0 !important;
   }
-  .MuiAccordion-root.Mui-expanded {
+  & .MuiAccordion-root.Mui-expanded {
     margin: 0;
     :before {
       opacity: 0;
     }
   }
-  .MuiIconButton-edgeEnd {
+  & .MuiIconButton-edgeEnd {
     margin-right: 0;
   }
 `

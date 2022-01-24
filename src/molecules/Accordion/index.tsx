@@ -3,7 +3,6 @@ import {
   AccordionSummary,
   AccordionDetails,
   Grid,
-  StylesProvider
 } from '@material-ui/core'
 import React, { FC } from 'react'
 import { Typography } from '../..'
@@ -25,7 +24,7 @@ export type TAccordionArgs = {
 export const Accordion: FC<TAccordionArgs> = ({ content, ...props }) => {
   const accordions = Array.isArray(content) ? content : [content]
   return (
-    <StylesProvider injectFirst>
+    // <StylesProvider injectFirst>
       <StyledWrapper>
         {accordions.map((acc, index) => (
           <MuiAccordion
@@ -63,6 +62,6 @@ export const Accordion: FC<TAccordionArgs> = ({ content, ...props }) => {
           </MuiAccordion>
         ))}
       </StyledWrapper>
-    </StylesProvider>
+    // </StylesProvider>
   )
 }
