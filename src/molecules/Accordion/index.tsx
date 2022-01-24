@@ -8,7 +8,7 @@ import React, { FC } from 'react'
 import { Typography } from '../..'
 import ArrowDownOutlined from '../../static/icons/bendesk/ArrowDownOutlined'
 import palette from '../../theme/palette'
-import { StyledWrapper, useStyles } from './styles'
+import { useStyles } from './styles'
 
 export type TAccordionContent = {
   title: string
@@ -24,9 +24,9 @@ export type TAccordionArgs = {
 export const Accordion: FC<TAccordionArgs> = ({ content, ...props }) => {
   const accordions = Array.isArray(content) ? content : [content]
   const classes = useStyles()
+
   return (
-    // <StylesProvider injectFirst>
-    <>
+    <div>
       {accordions.map((acc, index) => (
         <MuiAccordion
           key={index}
@@ -62,8 +62,7 @@ export const Accordion: FC<TAccordionArgs> = ({ content, ...props }) => {
             )}
           </AccordionDetails>
         </MuiAccordion>
-      ))}
-    </>
-    // </StylesProvider>
+      ))}{' '}
+    </div>
   )
 }

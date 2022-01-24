@@ -1,7 +1,7 @@
 import { makeStyles } from '@material-ui/core'
 import styled from 'styled-components'
 
-export const useStyles = makeStyles((theme) => ({
+export const useStyles = makeStyles(() => ({
   paper_root: { margin: 0 },
   accordion_root: {
     margin: 0,

@@ -1331,7 +1331,22 @@ var palette = {
 };
 
 var _templateObject;
-var StyledWrapper = styled.div(_templateObject || (_templateObject = _taggedTemplateLiteralLoose(["\n  .MuiPaper-root {\n    margin: 0;\n  }\n  .MuiAccordion-root {\n    margin: 0;\n    border-bottom: 1px solid #dadada;\n    border-radius: 0;\n    :before {\n      opacity: 0;\n    }\n  }\n  .MuiGrid-container {\n    margin-bottom: 0;\n  }\n  .MuiIconButton-label {\n    height: 35px;\n    width: 35px;\n  }\n  .MuiAccordionDetails-root {\n    padding-top: 0;\n  }\n  .MuiAccordionSummary-root {\n    padding: 24px;\n    min-height: unset !important;\n  }\n  .MuiAccordionDetails-root {\n    padding: 24px;\n    padding-top: 0;\n  }\n  .MuiAccordionSummary-expandIcon {\n    padding: 0;\n  }\n  .MuiAccordionSummary-content {\n    margin: 0 !important;\n  }\n  .MuiAccordion-root.Mui-expanded {\n    margin: 0;\n    :before {\n      opacity: 0;\n    }\n  }\n  .MuiIconButton-edgeEnd {\n    margin-right: 0;\n  }\n"])));
+var useStyles = core.makeStyles(function () {
+  return {
+    paper_root: {
+      margin: 0
+    },
+    accordion_root: {
+      margin: 0,
+      borderBottom: '1px solid #dadada',
+      borderRadius: 0,
+      '&:before': {
+        opacity: 0
+      }
+    }
+  };
+});
+var StyledWrapper = styled.div(_templateObject || (_templateObject = _taggedTemplateLiteralLoose(["\n  & .MuiPaper-root {\n    margin: 0;\n  }\n  & .MuiAccordion-root {\n    margin: 0;\n    border-bottom: 1px solid #dadada;\n    border-radius: 0;\n    :before {\n      opacity: 0;\n    }\n  }\n  & .MuiGrid-container {\n    margin-bottom: 0;\n  }\n  & .MuiIconButton-label {\n    height: 35px;\n    width: 35px;\n  }\n  & .MuiAccordionDetails-root {\n    padding-top: 0;\n  }\n  & .MuiAccordionSummary-root {\n    padding: 24px;\n    min-height: unset !important;\n  }\n  & .MuiAccordionDetails-root {\n    padding: 24px;\n    padding-top: 0;\n  }\n  & .MuiAccordionSummary-expandIcon {\n    padding: 0;\n  }\n  & .MuiAccordionSummary-content {\n    margin: 0 !important;\n  }\n  & .MuiAccordion-root.Mui-expanded {\n    margin: 0;\n    :before {\n      opacity: 0;\n    }\n  }\n  & .MuiIconButton-edgeEnd {\n    margin-right: 0;\n  }\n"])));
 
 var _excluded$1 = ["content"];
 var Accordion = function Accordion(_ref) {
@@ -1339,12 +1354,14 @@ var Accordion = function Accordion(_ref) {
       props = _objectWithoutPropertiesLoose(_ref, _excluded$1);
 
   var accordions = Array.isArray(content) ? content : [content];
-  return React.createElement(core.StylesProvider, {
-    injectFirst: true
-  }, React.createElement(StyledWrapper, null, accordions.map(function (acc, index) {
+  var classes = useStyles();
+  return React.createElement("div", null, accordions.map(function (acc, index) {
     return React.createElement(core.Accordion, Object.assign({
       key: index,
-      defaultExpanded: acc.defaultExpanded
+      defaultExpanded: acc.defaultExpanded,
+      classes: {
+        root: classes.accordion_root
+      }
     }, props), React.createElement(core.AccordionSummary, {
       expandIcon: React.createElement(ArrowDownOutlined, {
         style: {
@@ -1374,7 +1391,7 @@ var Accordion = function Accordion(_ref) {
         marginBottom: 0
       }
     }, acc.content) : React.createElement(acc.content, null)));
-  })));
+  }), ' ');
 };
 
 var _excluded$2 = ["size"];
@@ -1397,7 +1414,7 @@ var Avatar = function Avatar(_ref) {
   }, props));
 };
 
-var useStyles = styles.makeStyles(function () {
+var useStyles$1 = styles.makeStyles(function () {
   return {
     rootV: {
       alignItems: 'start !important'
@@ -1458,7 +1475,7 @@ var CheckboxGroup = function CheckboxGroup(_ref) {
       horizontal = _ref$horizontal === void 0 ? false : _ref$horizontal,
       props = _objectWithoutPropertiesLoose(_ref, _excluded$3);
 
-  var classes = useStyles();
+  var classes = useStyles$1();
 
   var handleChange = function handleChange(event) {
     var _extends2;
@@ -1751,7 +1768,7 @@ var Select = function Select(_ref) {
   }, children), React.createElement(core.FormHelperText, null, helperText)));
 };
 
-var useStyles$1 = styles.makeStyles(function () {
+var useStyles$2 = styles.makeStyles(function () {
   return {
     filledError: {
       fontSize: '14px',
@@ -1789,7 +1806,7 @@ var Snackbar = function Snackbar(_ref) {
       message = _ref.message,
       props = _objectWithoutPropertiesLoose(_ref, _excluded$9);
 
-  var classes = useStyles$1();
+  var classes = useStyles$2();
   return React.createElement(core.Snackbar, Object.assign({
     onClose: onClose,
     autoHideDuration: autoHideDuration
@@ -1856,7 +1873,7 @@ var Switch = function Switch(_ref) {
   }, helperText)));
 };
 
-var useStyles$2 = styles.makeStyles(function () {
+var useStyles$3 = styles.makeStyles(function () {
   return {
     root: {}
   };
@@ -4680,7 +4697,7 @@ var TextField = function TextField(_ref) {
       type = _ref.type,
       props = _objectWithoutPropertiesLoose(_ref, _excluded$b);
 
-  var classes = useStyles$2();
+  var classes = useStyles$3();
   return React.createElement(MuiTextField, Object.assign({
     classes: classes,
     variant: variant,
@@ -4715,7 +4732,7 @@ function DateInput(_ref2) {
   }, props));
 }
 
-var useStyles$3 = styles.makeStyles(function (theme) {
+var useStyles$4 = styles.makeStyles(function (theme) {
   var _root, _button, _arrowSize;
 
   return {
@@ -4777,7 +4794,7 @@ var TypographyTeaser = function TypographyTeaser(_ref) {
       style = _ref.style,
       className = _ref.className,
       content = _ref.content;
-  var classes = useStyles$3();
+  var classes = useStyles$4();
   return /*#__PURE__*/React.createElement(Card, {
     className: [classes.root, className].join(' '),
     raised: true,
@@ -4840,7 +4857,7 @@ TypographyTeaser.defaultProps = {
   }
 };
 
-var useStyles$4 = styles.makeStyles(function (theme) {
+var useStyles$5 = styles.makeStyles(function (theme) {
   var _root, _arrowSize;
 
   return {
@@ -4903,7 +4920,7 @@ var ColoredLineCard = function ColoredLineCard(_ref) {
       style = _ref.style,
       textColor = _ref.textColor,
       className = _ref.className;
-  var classes = useStyles$4();
+  var classes = useStyles$5();
   return /*#__PURE__*/React.createElement(Card, {
     className: [classes.root, className].join(' '),
     raised: true,
@@ -4967,7 +4984,7 @@ ColoredLineCard.defaultProps = {
   }
 };
 
-var useStyles$5 = styles.makeStyles(function (theme) {
+var useStyles$6 = styles.makeStyles(function (theme) {
   var _button, _arrowSize, _children;
 
   return {
@@ -5029,7 +5046,7 @@ var InfoWithIcon = function InfoWithIcon(_ref) {
       className = _ref.className,
       description = _ref.description,
       headerIcon = _ref.headerIcon;
-  var classes = useStyles$5();
+  var classes = useStyles$6();
   return /*#__PURE__*/React.createElement("div", {
     className: [classes.root, className].join(' '),
     style: _extends({}, style)
