@@ -17,6 +17,7 @@ import { TextField } from './molecules/TextField'
 import { TypographyTeaser } from './organisms/cards/TypographyTeaser'
 import { ColoredLineCard } from './organisms/cards/ColoredLineCard'
 import { InfoWithIcon } from './organisms/infoContainer/InfoWithIcon'
+import { FullScreenDialog } from './organisms/dialogs/fullScreen'
 
 export {
   // Atoms
@@ -38,5 +39,6 @@ export {
   // Organisms
   TypographyTeaser,
   ColoredLineCard,
-  InfoWithIcon
+  InfoWithIcon,
+  FullScreenDialog
 }

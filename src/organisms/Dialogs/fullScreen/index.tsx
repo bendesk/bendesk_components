@@ -32,7 +32,7 @@ const Transition = React.forwardRef(function Transition(
   return <Slide direction='up' ref={ref} {...props} />
 })
 
-const FullScreenDialog: FC<TFullScreenDialogArgs> = ({
+export const FullScreenDialog: FC<TFullScreenDialogArgs> = ({
   children,
   handleClose,
   style,
@@ -52,7 +52,7 @@ const FullScreenDialog: FC<TFullScreenDialogArgs> = ({
       PaperProps={{ style: { borderRadius: '16px 16px 0px 0px' } }}
       TransitionComponent={Transition}
       transitionDuration={disableTransition ? 1 : 500}
-      style={{ marginTop: '32px' }}
+      style={{ marginTop: '32px', ...style }}
     >
       <Toolbar
         style={{

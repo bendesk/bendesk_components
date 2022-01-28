@@ -15,6 +15,9 @@ var Card = _interopDefault(require('@material-ui/core/Card'));
 var CardContent = _interopDefault(require('@material-ui/core/CardContent'));
 var ArrowForwardIcon = _interopDefault(require('@material-ui/icons/ArrowForward'));
 require('@material-ui/icons/SpaOutlined');
+var ArrowBackIcon = _interopDefault(require('@material-ui/icons/ArrowBack'));
+var CloseIcon = _interopDefault(require('@material-ui/icons/Close'));
+var clsx = _interopDefault(require('clsx'));
 
 function _extends() {
   _extends = Object.assign || function (target) {
@@ -5056,6 +5059,135 @@ InfoWithIcon.defaultProps = {
   description: ''
 };
 
+var useStyles$6 = styles.makeStyles(function (theme) {
+  var _toolBar, _toolbarSpacing, _dialogContentSpacing;
+
+  return {
+    appBar: {
+      position: 'relative'
+    },
+    title: {
+      flex: 1
+    },
+    toolBar: (_toolBar = {}, _toolBar[theme.breakpoints.only('xs')] = {
+      marginTop: theme.spacing(2)
+    }, _toolBar[theme.breakpoints.between('sm', 'md')] = {
+      marginTop: theme.spacing(3)
+    }, _toolBar[theme.breakpoints.up('lg')] = {
+      marginTop: theme.spacing(4)
+    }, _toolBar),
+    toolbarSpacing: (_toolbarSpacing = {
+      paddingLeft: '64px',
+      paddingRight: '64px'
+    }, _toolbarSpacing[theme.breakpoints.only('xs')] = {
+      paddingRight: '16px',
+      paddingLeft: '16px',
+      minHeight: 'auto'
+    }, _toolbarSpacing[theme.breakpoints.between('sm', 'md')] = {
+      paddingRight: '24px',
+      paddingLeft: '24px',
+      minHeight: 'auto'
+    }, _toolbarSpacing[theme.breakpoints.only('lg')] = {
+      paddingRight: '32px',
+      paddingLeft: '32px'
+    }, _toolbarSpacing),
+    dialogContentSpacing: (_dialogContentSpacing = {
+      paddingLeft: '64px',
+      paddingRight: '64px',
+      marginTop: '80px'
+    }, _dialogContentSpacing[theme.breakpoints.only('xs')] = {
+      paddingRight: '16px',
+      paddingLeft: '16px',
+      minHeight: 'auto'
+    }, _dialogContentSpacing[theme.breakpoints.between('sm', 'md')] = {
+      paddingRight: '24px',
+      paddingLeft: '24px',
+      minHeight: 'auto'
+    }, _dialogContentSpacing[theme.breakpoints.only('lg')] = {
+      paddingRight: '32px',
+      paddingLeft: '32px'
+    }, _dialogContentSpacing),
+    toolbarContainer: {
+      marginTop: '24px',
+      display: 'inline-flex',
+      height: '48px',
+      alignItems: 'center'
+    }
+  };
+});
+
+var Transition = React.forwardRef(function Transition(props, ref) {
+  return React.createElement(core.Slide, Object.assign({
+    direction: 'up',
+    ref: ref
+  }, props));
+});
+var FullScreenDialog = function FullScreenDialog(_ref) {
+  var children = _ref.children,
+      handleClose = _ref.handleClose,
+      style = _ref.style,
+      title = _ref.title,
+      handleBack = _ref.handleBack,
+      showBack = _ref.showBack,
+      open = _ref.open,
+      _ref$disableTransitio = _ref.disableTransition,
+      disableTransition = _ref$disableTransitio === void 0 ? false : _ref$disableTransitio;
+  var classes = useStyles$6();
+  return React.createElement(core.Dialog, {
+    fullScreen: true,
+    open: open,
+    onClose: handleClose,
+    PaperProps: {
+      style: {
+        borderRadius: '16px 16px 0px 0px'
+      }
+    },
+    TransitionComponent: Transition,
+    transitionDuration: disableTransition ? 1 : 500,
+    style: _extends({
+      marginTop: '32px'
+    }, style)
+  }, React.createElement(core.Toolbar, {
+    style: {
+      display: 'inline-table',
+      borderBottom: "1px solid " + colorSet['borderGrey'],
+      padding: '0px'
+    }
+  }, React.createElement("div", {
+    className: clsx(classes.toolbarSpacing, classes.toolbarContainer),
+    style: {
+      marginTop: '24px',
+      flex: 1,
+      display: 'inline-flex',
+      width: '100%'
+    }
+  }, React.createElement("div", {
+    className: classes.title
+  }, showBack && React.createElement(core.Button, {
+    size: 'small',
+    variant: 'text',
+    onClick: function onClick() {
+      return handleBack();
+    },
+    startIcon: React.createElement(ArrowBackIcon, null)
+  }, "Back")), React.createElement("div", null, React.createElement(core.IconButton, {
+    disableFocusRipple: true,
+    disableRipple: true,
+    color: 'inherit',
+    onClick: handleClose,
+    "aria-label": 'close'
+  }, React.createElement(CloseIcon, {
+    color: 'primary'
+  })))), React.createElement(Typography, {
+    className: classes.toolbarSpacing,
+    variant: 'h2',
+    style: {
+      marginBottom: '24px',
+      marginTop: '24px'
+    }
+  }, title)), children);
+};
+
 exports.Accordion = Accordion;
 exports.Avatar = Avatar;
 exports.CheckboxGroup = CheckboxGroup;
@@ -5063,6 +5195,7 @@ exports.Chip = Chip;
 exports.CircularProgress = CircularProgress;
 exports.ColoredLineCard = ColoredLineCard;
 exports.Colors = index;
+exports.FullScreenDialog = FullScreenDialog;
 exports.InfoWithIcon = InfoWithIcon;
 exports.LinearProgress = LinearProgress;
 exports.Pagination = Pagination;

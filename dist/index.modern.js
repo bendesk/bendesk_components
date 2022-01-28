@@ -1,6 +1,6 @@
 import Typography$1 from '@material-ui/core/Typography';
 import React from 'react';
-import { SvgIcon, colors as colors$1, Accordion as Accordion$1, AccordionSummary, Grid, AccordionDetails, Avatar as Avatar$1, FormControl, FormLabel, FormGroup, FormControlLabel, Checkbox, FormHelperText, LinearProgress as LinearProgress$1, CircularProgress as CircularProgress$1, RadioGroup, Radio, InputLabel, Snackbar as Snackbar$1, Switch as Switch$1, InputAdornment } from '@material-ui/core';
+import { SvgIcon, colors as colors$1, Accordion as Accordion$1, AccordionSummary, Grid, AccordionDetails, Avatar as Avatar$1, FormControl, FormLabel, FormGroup, FormControlLabel, Checkbox, FormHelperText, LinearProgress as LinearProgress$1, CircularProgress as CircularProgress$1, RadioGroup, Radio, InputLabel, Snackbar as Snackbar$1, Switch as Switch$1, InputAdornment, Slide, Dialog, Toolbar, Button as Button$1, IconButton } from '@material-ui/core';
 import styled from 'styled-components';
 import { makeStyles } from '@material-ui/core/styles';
 import MuiChip from '@material-ui/core/Chip';
@@ -13,6 +13,9 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import '@material-ui/icons/SpaOutlined';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import CloseIcon from '@material-ui/icons/Close';
+import clsx from 'clsx';
 
 function _extends() {
   _extends = Object.assign || function (target) {
@@ -5054,5 +5057,134 @@ InfoWithIcon.defaultProps = {
   description: ''
 };
 
-export { Accordion, Avatar, CheckboxGroup, Chip, CircularProgress, ColoredLineCard, index as Colors, InfoWithIcon, LinearProgress, Pagination, RadiobuttonGroup, Select, Snackbar, Switch, TextField, Typography, TypographyTeaser };
+var useStyles$6 = makeStyles(function (theme) {
+  var _toolBar, _toolbarSpacing, _dialogContentSpacing;
+
+  return {
+    appBar: {
+      position: 'relative'
+    },
+    title: {
+      flex: 1
+    },
+    toolBar: (_toolBar = {}, _toolBar[theme.breakpoints.only('xs')] = {
+      marginTop: theme.spacing(2)
+    }, _toolBar[theme.breakpoints.between('sm', 'md')] = {
+      marginTop: theme.spacing(3)
+    }, _toolBar[theme.breakpoints.up('lg')] = {
+      marginTop: theme.spacing(4)
+    }, _toolBar),
+    toolbarSpacing: (_toolbarSpacing = {
+      paddingLeft: '64px',
+      paddingRight: '64px'
+    }, _toolbarSpacing[theme.breakpoints.only('xs')] = {
+      paddingRight: '16px',
+      paddingLeft: '16px',
+      minHeight: 'auto'
+    }, _toolbarSpacing[theme.breakpoints.between('sm', 'md')] = {
+      paddingRight: '24px',
+      paddingLeft: '24px',
+      minHeight: 'auto'
+    }, _toolbarSpacing[theme.breakpoints.only('lg')] = {
+      paddingRight: '32px',
+      paddingLeft: '32px'
+    }, _toolbarSpacing),
+    dialogContentSpacing: (_dialogContentSpacing = {
+      paddingLeft: '64px',
+      paddingRight: '64px',
+      marginTop: '80px'
+    }, _dialogContentSpacing[theme.breakpoints.only('xs')] = {
+      paddingRight: '16px',
+      paddingLeft: '16px',
+      minHeight: 'auto'
+    }, _dialogContentSpacing[theme.breakpoints.between('sm', 'md')] = {
+      paddingRight: '24px',
+      paddingLeft: '24px',
+      minHeight: 'auto'
+    }, _dialogContentSpacing[theme.breakpoints.only('lg')] = {
+      paddingRight: '32px',
+      paddingLeft: '32px'
+    }, _dialogContentSpacing),
+    toolbarContainer: {
+      marginTop: '24px',
+      display: 'inline-flex',
+      height: '48px',
+      alignItems: 'center'
+    }
+  };
+});
+
+var Transition = React.forwardRef(function Transition(props, ref) {
+  return React.createElement(Slide, Object.assign({
+    direction: 'up',
+    ref: ref
+  }, props));
+});
+var FullScreenDialog = function FullScreenDialog(_ref) {
+  var children = _ref.children,
+      handleClose = _ref.handleClose,
+      style = _ref.style,
+      title = _ref.title,
+      handleBack = _ref.handleBack,
+      showBack = _ref.showBack,
+      open = _ref.open,
+      _ref$disableTransitio = _ref.disableTransition,
+      disableTransition = _ref$disableTransitio === void 0 ? false : _ref$disableTransitio;
+  var classes = useStyles$6();
+  return React.createElement(Dialog, {
+    fullScreen: true,
+    open: open,
+    onClose: handleClose,
+    PaperProps: {
+      style: {
+        borderRadius: '16px 16px 0px 0px'
+      }
+    },
+    TransitionComponent: Transition,
+    transitionDuration: disableTransition ? 1 : 500,
+    style: _extends({
+      marginTop: '32px'
+    }, style)
+  }, React.createElement(Toolbar, {
+    style: {
+      display: 'inline-table',
+      borderBottom: "1px solid " + colorSet['borderGrey'],
+      padding: '0px'
+    }
+  }, React.createElement("div", {
+    className: clsx(classes.toolbarSpacing, classes.toolbarContainer),
+    style: {
+      marginTop: '24px',
+      flex: 1,
+      display: 'inline-flex',
+      width: '100%'
+    }
+  }, React.createElement("div", {
+    className: classes.title
+  }, showBack && React.createElement(Button$1, {
+    size: 'small',
+    variant: 'text',
+    onClick: function onClick() {
+      return handleBack();
+    },
+    startIcon: React.createElement(ArrowBackIcon, null)
+  }, "Back")), React.createElement("div", null, React.createElement(IconButton, {
+    disableFocusRipple: true,
+    disableRipple: true,
+    color: 'inherit',
+    onClick: handleClose,
+    "aria-label": 'close'
+  }, React.createElement(CloseIcon, {
+    color: 'primary'
+  })))), React.createElement(Typography, {
+    className: classes.toolbarSpacing,
+    variant: 'h2',
+    style: {
+      marginBottom: '24px',
+      marginTop: '24px'
+    }
+  }, title)), children);
+};
+
+export { Accordion, Avatar, CheckboxGroup, Chip, CircularProgress, ColoredLineCard, index as Colors, FullScreenDialog, InfoWithIcon, LinearProgress, Pagination, RadiobuttonGroup, Select, Snackbar, Switch, TextField, Typography, TypographyTeaser };
 //# sourceMappingURL=index.modern.js.map
