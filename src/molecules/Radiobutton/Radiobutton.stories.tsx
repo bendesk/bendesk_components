@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-import { RadiobuttonGroup, Radiobutton } from '.'
+import { RadiobuttonGroup } from '.'
 import generateDisabledArgsConfig from '../../helpers/generateDisabledArgsConfig'
 
 const disabledArgs: string[] = [
