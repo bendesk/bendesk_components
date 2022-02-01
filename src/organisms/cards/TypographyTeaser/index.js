@@ -108,6 +108,7 @@ export const TypographyTeaser = ({
             size='medium'
             disableElevation
             variant={buttonVariant}
+            onClick={() => url && window.open(url)}
             style={{
               color: backgroundColor ? colors.blue : colors[textColor],
               padding: !backgroundColor && '0px',
