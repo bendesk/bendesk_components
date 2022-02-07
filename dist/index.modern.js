@@ -4769,6 +4769,7 @@ var useStyles$3 = makeStyles(function (theme) {
 });
 var TypographyTeaser = function TypographyTeaser(_ref) {
   var title = _ref.title,
+      url = _ref.url,
       textColor = _ref.textColor,
       backgroundColor = _ref.backgroundColor,
       buttonText = _ref.buttonText,
@@ -4800,6 +4801,9 @@ var TypographyTeaser = function TypographyTeaser(_ref) {
     size: "medium",
     disableElevation: true,
     variant: buttonVariant,
+    onClick: function onClick() {
+      return url && window.open(url);
+    },
     style: {
       color: backgroundColor ? colors.blue : colors[textColor],
       padding: !backgroundColor && '0px',
