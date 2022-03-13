@@ -5,7 +5,6 @@ import {
   FormControlProps,
   FormHelperText,
   Switch as MuiSwitch,
-  FormLabel,
   FormGroup,
   FormControlLabel
 } from '@material-ui/core'
@@ -38,9 +37,6 @@ export const Switch: FC<TSwitchArgs> = ({
   return (
     <StyledWrapper size={size}>
       <FormControl error={error} disabled={disabled} {...props}>
-        {/* <FormLabel style={{ paddingBottom: '16px', fontWeight: 600 }}>
-          {label}
-        </FormLabel> */}
         <FormGroup>
           <FormControlLabel
             style={{ alignItems: 'start' }}

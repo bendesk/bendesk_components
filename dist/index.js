@@ -1682,7 +1682,7 @@ var StyledWrapper$2 = styled.div(_templateObject$2 || (_templateObject$2 = _tagg
   return props.hasChip ? '10.5px 12px' : '17px 12px';
 });
 
-var _excluded$8 = ["variant", "fullWidth", "error", "label", "helperText", "disabled", "multiple", "value", "onChange", "children"];
+var _excluded$8 = ["variant", "fullWidth", "error", "label", "helperText", "disabled", "multiple", "value", "onChange", "children", "name"];
 var ITEM_HEIGHT = 36;
 var MenuProps = {
   PaperProps: {
@@ -1717,6 +1717,7 @@ var Select = function Select(_ref) {
       value = _ref.value,
       onChange = _ref.onChange,
       children = _ref.children,
+      name = _ref.name,
       props = _objectWithoutPropertiesLoose(_ref, _excluded$8);
 
   return React.createElement(StyledWrapper$2, {
@@ -1727,6 +1728,7 @@ var Select = function Select(_ref) {
     error: error,
     disabled: disabled
   }, props), React.createElement(core.InputLabel, null, label), React.createElement(MuiSelect, {
+    name: name,
     variant: variant,
     label: label,
     value: value,
@@ -1834,12 +1836,7 @@ var Switch = function Switch(_ref) {
   }, React.createElement(core.FormControl, Object.assign({
     error: error,
     disabled: disabled
-  }, props), React.createElement(core.FormLabel, {
-    style: {
-      paddingBottom: '16px',
-      fontWeight: 600
-    }
-  }, label), React.createElement(core.FormGroup, null, React.createElement(core.FormControlLabel, {
+  }, props), React.createElement(core.FormGroup, null, React.createElement(core.FormControlLabel, {
     style: {
       alignItems: 'start'
     },
@@ -5064,7 +5061,7 @@ InfoWithIcon.defaultProps = {
 };
 
 var useStyles$6 = styles.makeStyles(function (theme) {
-  var _toolBar, _toolbarSpacing, _dialogContentSpacing;
+  var _toolBar;
 
   return {
     appBar: {
@@ -5080,37 +5077,15 @@ var useStyles$6 = styles.makeStyles(function (theme) {
     }, _toolBar[theme.breakpoints.up('lg')] = {
       marginTop: theme.spacing(4)
     }, _toolBar),
-    toolbarSpacing: (_toolbarSpacing = {
-      paddingLeft: '64px',
-      paddingRight: '64px'
-    }, _toolbarSpacing[theme.breakpoints.only('xs')] = {
-      paddingRight: '16px',
-      paddingLeft: '16px',
-      minHeight: 'auto'
-    }, _toolbarSpacing[theme.breakpoints.between('sm', 'md')] = {
-      paddingRight: '24px',
-      paddingLeft: '24px',
-      minHeight: 'auto'
-    }, _toolbarSpacing[theme.breakpoints.only('lg')] = {
+    toolbarSpacing: {
+      paddingLeft: '32px',
+      paddingRight: '32px'
+    },
+    dialogContentSpacing: {
+      paddingLeft: '32px',
       paddingRight: '32px',
-      paddingLeft: '32px'
-    }, _toolbarSpacing),
-    dialogContentSpacing: (_dialogContentSpacing = {
-      paddingLeft: '64px',
-      paddingRight: '64px',
       marginTop: '80px'
-    }, _dialogContentSpacing[theme.breakpoints.only('xs')] = {
-      paddingRight: '16px',
-      paddingLeft: '16px',
-      minHeight: 'auto'
-    }, _dialogContentSpacing[theme.breakpoints.between('sm', 'md')] = {
-      paddingRight: '24px',
-      paddingLeft: '24px',
-      minHeight: 'auto'
-    }, _dialogContentSpacing[theme.breakpoints.only('lg')] = {
-      paddingRight: '32px',
-      paddingLeft: '32px'
-    }, _dialogContentSpacing),
+    },
     toolbarContainer: {
       marginTop: '24px',
       display: 'inline-flex',
