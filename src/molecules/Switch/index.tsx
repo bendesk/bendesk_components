@@ -38,9 +38,9 @@ export const Switch: FC<TSwitchArgs> = ({
   return (
     <StyledWrapper size={size}>
       <FormControl error={error} disabled={disabled} {...props}>
-        <FormLabel style={{ paddingBottom: '16px', fontWeight: 600 }}>
+        {/* <FormLabel style={{ paddingBottom: '16px', fontWeight: 600 }}>
           {label}
-        </FormLabel>
+        </FormLabel> */}
         <FormGroup>
           <FormControlLabel
             style={{ alignItems: 'start' }}
