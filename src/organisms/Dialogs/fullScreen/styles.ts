@@ -19,41 +19,41 @@ export const useStyles = makeStyles((theme) => ({
     }
   },
   toolbarSpacing: {
-    paddingLeft: '64px',
-    paddingRight: '64px',
-    [theme.breakpoints.only('xs')]: {
-      paddingRight: '16px',
-      paddingLeft: '16px',
-      minHeight: 'auto'
-    },
-    [theme.breakpoints.between('sm', 'md')]: {
-      paddingRight: '24px',
-      paddingLeft: '24px',
-      minHeight: 'auto'
-    },
-    [theme.breakpoints.only('lg')]: {
-      paddingRight: '32px',
-      paddingLeft: '32px'
-    }
+    paddingLeft: '32px',
+    paddingRight: '32px'
+    // [theme.breakpoints.only('xs')]: {
+    //   paddingRight: '16px',
+    //   paddingLeft: '16px',
+    //   minHeight: 'auto'
+    // },
+    // [theme.breakpoints.between('sm', 'md')]: {
+    //   paddingRight: '24px',
+    //   paddingLeft: '24px',
+    //   minHeight: 'auto'
+    // },
+    // [theme.breakpoints.only('lg')]: {
+    //   paddingRight: '32px',
+    //   paddingLeft: '32px'
+    // }
   },
   dialogContentSpacing: {
-    paddingLeft: '64px',
-    paddingRight: '64px',
-    marginTop: '80px',
-    [theme.breakpoints.only('xs')]: {
-      paddingRight: '16px',
-      paddingLeft: '16px',
-      minHeight: 'auto'
-    },
-    [theme.breakpoints.between('sm', 'md')]: {
-      paddingRight: '24px',
-      paddingLeft: '24px',
-      minHeight: 'auto'
-    },
-    [theme.breakpoints.only('lg')]: {
-      paddingRight: '32px',
-      paddingLeft: '32px'
-    }
+    paddingLeft: '32px',
+    paddingRight: '32px',
+    marginTop: '80px'
+    // [theme.breakpoints.only('xs')]: {
+    //   paddingRight: '16px',
+    //   paddingLeft: '16px',
+    //   minHeight: 'auto'
+    // },
+    // [theme.breakpoints.between('sm', 'md')]: {
+    //   paddingRight: '24px',
+    //   paddingLeft: '24px',
+    //   minHeight: 'auto'
+    // },
+    // [theme.breakpoints.only('lg')]: {
+    //   paddingRight: '32px',
+    //   paddingLeft: '32px'
+    // }
   },
   toolbarContainer: {
     marginTop: '24px',

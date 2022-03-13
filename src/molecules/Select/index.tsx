@@ -13,6 +13,7 @@ import { StyledWrapper } from './styles'
 
 export type TSelectArgs = FormControlProps & {
   label: string
+  name: string
   helperText?: string
   error?: boolean
   disabled?: boolean
@@ -52,6 +53,7 @@ export const Select: FC<TSelectArgs> = ({
   value,
   onChange,
   children,
+  name,
   ...props
 }) => {
   return (
@@ -65,6 +67,7 @@ export const Select: FC<TSelectArgs> = ({
       >
         <InputLabel>{label}</InputLabel>
         <MuiSelect
+          name={name}
           variant={variant}
           label={label}
           value={value}
