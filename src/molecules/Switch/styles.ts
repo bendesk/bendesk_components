@@ -13,12 +13,21 @@ export const StyledWrapper = styled.div<{
     background-color: #6d7785;
     box-shadow: none;
   }
-  .Mui-checked {
+  .Mui-disabled {
     .MuiSwitch-track {
-      background-color: #126AEF;
+      background-color: #6d7785;
     }
     .MuiSwitch-thumb {
-      background-color: #126AEF;
+      background-color: #6d7785 !important;
+      box-shadow: none;
+    }
+  }
+  .Mui-checked {
+    .MuiSwitch-track {
+      background-color: #126aef;
+    }
+    .MuiSwitch-thumb {
+      background-color: #126aef;
     }
   }
 `
