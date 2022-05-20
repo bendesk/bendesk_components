@@ -1809,7 +1809,7 @@ var Snackbar = function Snackbar(_ref) {
 };
 
 var _templateObject$3;
-var StyledWrapper$3 = styled.div(_templateObject$3 || (_templateObject$3 = _taggedTemplateLiteralLoose(["\n  .MuiFormControlLabel-label {\n    margin-top: ", ";\n  }\n  .MuiSwitch-track {\n    background-color: #6d7785;\n  }\n  .MuiSwitch-thumb {\n    background-color: #6d7785;\n    box-shadow: none;\n  }\n  .Mui-checked {\n    .MuiSwitch-track {\n      background-color: #126AEF;\n    }\n    .MuiSwitch-thumb {\n      background-color: #126AEF;\n    }\n  }\n"])), function (props) {
+var StyledWrapper$3 = styled.div(_templateObject$3 || (_templateObject$3 = _taggedTemplateLiteralLoose(["\n  .MuiFormControlLabel-label {\n    margin-top: ", ";\n  }\n  .MuiSwitch-track {\n    background-color: #6d7785;\n  }\n  .MuiSwitch-thumb {\n    background-color: #6d7785;\n    box-shadow: none;\n  }\n  .Mui-disabled {\n    .MuiSwitch-track {\n      background-color: #6d7785;\n    }\n    .MuiSwitch-thumb {\n      background-color: #6d7785 !important;\n      box-shadow: none;\n    }\n  }\n  .Mui-checked {\n    .MuiSwitch-track {\n      background-color: #126aef;\n    }\n    .MuiSwitch-thumb {\n      background-color: #126aef;\n    }\n  }\n"])), function (props) {
   return props.size === 'small' ? '0px' : '8px';
 });
 
